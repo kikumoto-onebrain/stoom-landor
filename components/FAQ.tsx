@@ -22,7 +22,7 @@ const faqs = [
     a: 'Com certeza. Os lockers Kaizu atendem empresas de todos os portes para controle de distribuição de equipamentos, materiais e encomendas internas. É possível configurar fluxos de acesso por setor, equipe ou hierarquia.',
   },
   {
-    q: 'Smart lockers podem ser utilizados como guarda-volumes?'
+    q: 'Smart lockers podem ser utilizados como guarda-volumes?',
     a: 'Sim, eles são ideias para guardar objetos com segurança, praticidade e com possibilidade de retirada a qualquer momento'
   },
   {
