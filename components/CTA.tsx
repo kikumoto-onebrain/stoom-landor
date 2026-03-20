@@ -77,14 +77,14 @@ export default function CTA() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-            className="lg:sticky lg:top-32 space-y-8"
+            className="lg:sticky lg:top-32 space-y-8 text-center lg:text-left"
           >
             <div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                 animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/15 border border-brand-highlight/20 rounded-full mb-6"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/15 border border-brand-highlight/20 rounded-full mb-6 mx-auto lg:mx-0"
               >
                 <motion.div
                   animate={{ opacity: [1, 0.3, 1] }}
@@ -175,7 +175,6 @@ export default function CTA() {
                     transition={{ duration: 0.3 }}
                     className="space-y-4"
                   >
-
                     <div className="grid grid-cols-2 gap-4">
                       {[
                         {
