@@ -2,7 +2,7 @@
 
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Users, Scale, Eye, TrendingDown, ArrowRight } from 'lucide-react';
+import { Users, Scale, Eye, TrendingDown } from 'lucide-react';
 
 const problems = [
   { icon: Users, text: 'Portarias sobrecarregadas com volume crescente de encomendas' },
@@ -63,7 +63,7 @@ export default function Challenge() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/10 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/10 rounded-full mb-6 justify-center lg:justify-start mx-auto lg:mx-0">
               <div className="w-2 h-2 bg-brand-highlight rounded-full" />
               <span className="text-brand-primary font-roboto font-medium">O Desafio</span>
               <div className="w-2 h-2 bg-brand-highlight rounded-full" />
@@ -73,7 +73,7 @@ export default function Challenge() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15 }}
-              className="text-4xl lg:text-5xl font-outfit font-bold text-brand-primary leading-tight mb-6"
+              className="text-4xl lg:text-5xl font-outfit font-bold text-brand-primary leading-tight mb-6 text-center lg:text-left"
             >
               O crescimento das entregas exige{' '}
               <span className="text-brand-secondary">novas soluções</span>
@@ -83,7 +83,7 @@ export default function Challenge() {
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.25 }}
-              className="text-gray-600 font-roboto leading-relaxed mb-8"
+              className="text-gray-600 font-roboto leading-relaxed mb-8 text-center lg:text-left"
             >
               Com a escalada do e-commerce e das entregas rápidas, condomínios e empresas
               enfrentam desafios cada vez maiores na gestão de encomendas.
@@ -106,7 +106,7 @@ export default function Challenge() {
               ))}
             </div>
 
-            <p className="text-brand-primary font-roboto leading-relaxed font-medium mb-8">
+            <p className="text-brand-primary font-roboto leading-relaxed font-medium mb-8 text-center lg:text-left">
               A automação com lockers inteligentes resolve esses desafios de forma simples e segura.
             </p>
 
@@ -115,7 +115,7 @@ export default function Challenge() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.95 }}
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
+              className="group hidden lg:inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
             >
               Conheça a solução
             </motion.a>
@@ -159,6 +159,20 @@ export default function Challenge() {
             >
               <div className="text-xl font-outfit font-bold">24/7</div>
               <div className="text-xs font-roboto opacity-90">disponibilidade</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.95 }}
+              className="flex justify-center mt-10 lg:hidden"
+            >
+              <a
+                href="#contato"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
+              >
+                Conheça a solução
+              </a>
             </motion.div>
           </motion.div>
         </div>
