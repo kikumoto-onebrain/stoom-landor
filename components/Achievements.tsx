@@ -25,7 +25,7 @@ const diferenciais = [
   {
     icon: Settings2,
     title: 'Lockers personalizáveis',
-    desc: 'Estrutura adaptável à identidade visual do cliente. Possibilidade de compartimentos resfriados, congelados ou químicos',
+    desc: 'Estrutura adaptável à identidade visual do cliente. Possibilidade de compartimentos resfriados, congelados ou químicos.',
   },
   {
     icon: Box,

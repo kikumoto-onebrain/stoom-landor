@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Smart lockers podem ser utilizados como guarda-volumes?',
-    a: 'Sim, eles são ideias para guardar objetos com segurança, praticidade e com possibilidade de retirada a qualquer momento'
+    a: 'Sim, eles são ideias para guardar objetos com segurança, praticidade e com possibilidade de retirada a qualquer momento',
   },
   {
     q: 'É possível integrar lockers com sistemas existentes?',
@@ -46,12 +46,14 @@ export default function FAQ() {
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="lg:sticky lg:top-32"
+            className="lg:sticky lg:top-32 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/10 rounded-full mb-6">
-              <div className="w-2 h-2 bg-brand-highlight rounded-full" />
-              <span className="text-brand-primary font-roboto font-medium">FAQ</span>
-              <div className="w-2 h-2 bg-brand-highlight rounded-full" />
+            <div className="flex justify-center lg:justify-start mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/10 rounded-full">
+                <div className="w-2 h-2 bg-brand-highlight rounded-full" />
+                <span className="text-brand-primary font-roboto font-medium">FAQ</span>
+                <div className="w-2 h-2 bg-brand-highlight rounded-full" />
+              </div>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-outfit font-bold text-brand-primary leading-tight mb-6">
@@ -59,16 +61,10 @@ export default function FAQ() {
               <span className="text-brand-secondary">frequentes</span>
             </h2>
 
-            <p className="text-gray-600 font-roboto leading-relaxed mb-8">
-              Tire suas dúvidas sobre os smart lockers Kaizu e descubra como a solução pode transformar sua operação.
+            <p className="text-gray-600 font-roboto leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+              Tire suas dúvidas sobre os smart lockers Kaizu e descubra como a solução pode
+              transformar sua operação.
             </p>
-
-            <a
-              href="#contato"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
-            >
-              Implemente os lockers
-            </a>
           </motion.div>
 
           <motion.div
@@ -129,6 +125,20 @@ export default function FAQ() {
             ))}
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.35, duration: 0.6 }}
+          className="mt-12 lg:mt-16 flex justify-center"
+        >
+          <a
+            href="#contato"
+            className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
+          >
+            Implemente os lockers
+          </a>
+        </motion.div>
       </div>
     </section>
   );
