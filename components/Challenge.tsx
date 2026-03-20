@@ -144,7 +144,7 @@ export default function Challenge() {
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ delay: 0.55 }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100 max-w-xs z-10"
+                className="absolute -bottom-10 lg:-bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100 max-w-xs z-10"
               >
                 <div className="text-3xl font-outfit font-bold text-brand-highlight mb-1">
                   R$1,5 trilhão
@@ -169,7 +169,7 @@ export default function Challenge() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.95 }}
-              className="flex justify-center lg:hidden relative z-20 mt-8"
+              className="flex justify-center lg:hidden relative z-20 mt-14"
             >
               <a
                 href="#contato"
