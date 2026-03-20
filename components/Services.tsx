@@ -38,6 +38,7 @@ const segments = [
       'Notificação automática ao morador',
       'Retirada via QR Code ou código',
       'Histórico completo de operações',
+      'Autonomia para retiradas, independente do horário',
     ],
     image: '/locker-condominio.webp',
   },
@@ -49,7 +50,7 @@ const segments = [
     description:
       'Empresas que precisam controlar distribuição de equipamentos, peças ou materiais entre equipes com rastreabilidade e organização.',
     highlights: [
-      'Controle de distribuição de materiais',
+      'Controle automatizado da distribuição de materiais',
       'Rastreabilidade por usuário e setor',
       'Gestão centralizada de acesso',
       'Relatórios de uso detalhados',
@@ -67,6 +68,7 @@ const segments = [
       'Coleta automatizada',
       'Distribuição inteligente',
       'Automação de processos logísticos',
+      'Locker como ponto de estoque avançado',
     ],
     image: '/locker-logistica.webp',
   },

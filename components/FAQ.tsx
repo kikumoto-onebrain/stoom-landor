@@ -22,12 +22,12 @@ const faqs = [
     a: 'Com certeza. Os lockers Kaizu atendem empresas de todos os portes para controle de distribuição de equipamentos, materiais e encomendas internas. É possível configurar fluxos de acesso por setor, equipe ou hierarquia.',
   },
   {
-    q: 'É possível integrar lockers com sistemas existentes?',
-    a: 'Sim. A Kaizu oferece integração via API com sistemas corporativos, ERPs, plataformas de e-commerce e sistemas de gestão condominial. Nossa equipe técnica acompanha todo o processo de integração.',
+    q: 'Smart lockers podem ser utilizados como guarda-volumes?'
+    a: 'Sim, eles são ideias para guardar objetos com segurança, praticidade e com possibilidade de retirada a qualquer momento'
   },
   {
-    q: 'Qual é o prazo para implementação?',
-    a: 'O prazo varia conforme o projeto. Em geral, instalações simples podem ser concluídas em menos de 24 horas. Projetos de maior escala com integrações e customizações são planejados junto ao cliente.',
+    q: 'É possível integrar lockers com sistemas existentes?',
+    a: 'Sim. A Kaizu oferece integração via API com sistemas corporativos, ERPs, plataformas de e-commerce e sistemas de gestão condominial. Nossa equipe técnica acompanha todo o processo de integração.',
   },
 ];
 
