@@ -1,0 +1,313 @@
+'use client';
+
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { Send, CircleCheck as CheckCircle } from 'lucide-react';
+
+type FormState = {
+  nome: string;
+  empresa: string;
+  email: string;
+  telefone: string;
+  mensagem: string;
+};
+
+export default function CTA() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.85, 0.93, 0.93, 0.85]);
+
+  const [form, setForm] = useState<FormState>({
+    nome: '',
+    empresa: '',
+    email: '',
+    telefone: '',
+    mensagem: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setForm({
+        nome: '',
+        empresa: '',
+        email: '',
+        telefone: '',
+        mensagem: '',
+      });
+      setSubmitted(false);
+    }, 5000);
+  };
+
+  return (
+    <section id="contato" ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden">
+      <motion.div style={{ y: bgY }} className="absolute inset-0">
+        <img
+          src="/locker-kaizu.webp"
+          alt="Contato Kaizu"
+          className="w-full h-full object-cover"
+        />
+        <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 bg-brand-primary" />
+      </motion.div>
+
+      <motion.div
+        animate={{ scale: [1, 1.4, 1], opacity: [0.05, 0.13, 0.05] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-brand-highlight rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div
+        animate={{ x: [0, -60, 0], opacity: [0.04, 0.09, 0.04] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-secondary rounded-full blur-3xl pointer-events-none"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+            className="lg:sticky lg:top-32 space-y-8"
+          >
+            <div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, y: 10 }}
+                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-highlight/15 border border-brand-highlight/20 rounded-full mb-6"
+              >
+                <motion.div
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="w-2 h-2 bg-brand-highlight rounded-full"
+                />
+                <span className="text-brand-highlight font-roboto font-medium text-sm">
+                  Fale com a Kaizu
+                </span>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 25 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.15, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                className="text-4xl lg:text-5xl font-outfit font-bold text-white leading-tight"
+              >
+                Tenha lockers inteligentes{' '}
+                <span className="text-brand-secondary">em sua operação</span>
+              </motion.h2>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.28, duration: 0.6 }}
+              className="text-white/70 font-roboto text-lg leading-relaxed"
+            >
+              Converse com um de nossos especialistas e descubra como implementar smart lockers.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50, y: 20 }}
+            animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/15 shadow-2xl"
+            >
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.5, type: 'spring', stiffness: 120 }}
+                    className="py-16 text-center space-y-5"
+                  >
+                    <motion.div
+                      initial={{ scale: 0, rotate: -30 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ delay: 0.1, type: 'spring', stiffness: 200, damping: 14 }}
+                      className="w-20 h-20 bg-brand-highlight/15 border-2 border-brand-highlight/30 rounded-full flex items-center justify-center mx-auto"
+                    >
+                      <CheckCircle size={36} className="text-brand-highlight" />
+                    </motion.div>
+
+                    <motion.h3
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.25, duration: 0.5 }}
+                      className="text-2xl font-outfit font-bold text-white"
+                    >
+                      Mensagem enviada!
+                    </motion.h3>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.35, duration: 0.5 }}
+                      className="text-white/70 font-roboto"
+                    >
+                      Nossa equipe entrará em contato em breve.
+                    </motion.p>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    onSubmit={handleSubmit}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+
+                    <div className="grid grid-cols-2 gap-4">
+                      {[
+                        {
+                          name: 'nome',
+                          label: 'Nome',
+                          placeholder: 'Seu nome',
+                          type: 'text',
+                          required: true,
+                        },
+                        {
+                          name: 'empresa',
+                          label: 'Empresa',
+                          placeholder: 'Sua empresa',
+                          type: 'text',
+                          required: true,
+                        },
+                      ].map((field, i) => (
+                        <motion.div
+                          key={field.name}
+                          initial={{ opacity: 0, y: 12 }}
+                          animate={isInView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ delay: 0.4 + i * 0.08, duration: 0.45 }}
+                        >
+                          <label className="block text-xs font-roboto font-medium text-white/70 mb-1.5">
+                            {field.label} {field.required && '*'}
+                          </label>
+                          <input
+                            name={field.name}
+                            value={form[field.name as keyof FormState]}
+                            onChange={handleChange}
+                            required={field.required}
+                            placeholder={field.placeholder}
+                            type={field.type}
+                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-white font-roboto text-sm placeholder:text-white/30 transition-all hover:border-white/25"
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      {[
+                        {
+                          name: 'email',
+                          label: 'E-mail',
+                          placeholder: 'seu@empresa.com.br',
+                          type: 'email',
+                          required: true,
+                        },
+                        {
+                          name: 'telefone',
+                          label: 'Telefone',
+                          placeholder: '(11) 99999-9999',
+                          type: 'tel',
+                          required: true,
+                        },
+                      ].map((field, i) => (
+                        <motion.div
+                          key={field.name}
+                          initial={{ opacity: 0, y: 12 }}
+                          animate={isInView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ delay: 0.52 + i * 0.08, duration: 0.45 }}
+                        >
+                          <label className="block text-xs font-roboto font-medium text-white/70 mb-1.5">
+                            {field.label} {field.required && '*'}
+                          </label>
+                          <input
+                            name={field.name}
+                            value={form[field.name as keyof FormState]}
+                            onChange={handleChange}
+                            required={field.required}
+                            placeholder={field.placeholder}
+                            type={field.type}
+                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-white font-roboto text-sm placeholder:text-white/30 transition-all hover:border-white/25"
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ delay: 0.81, duration: 0.45 }}
+                    >
+                      <label className="block text-xs font-roboto font-medium text-white/70 mb-1.5">
+                        Mensagem
+                      </label>
+                      <textarea
+                        name="mensagem"
+                        value={form.mensagem}
+                        onChange={handleChange}
+                        rows={3}
+                        placeholder="Conte um pouco sobre sua operação..."
+                        className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-white font-roboto text-sm placeholder:text-white/30 transition-all resize-none hover:border-white/25"
+                      />
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ delay: 0.9, duration: 0.45 }}
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.97 }}
+                        type="submit"
+                        className="w-full px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-secondary/25"
+                      >
+                        Fale com um especialista
+                        <motion.div
+                          animate={{ x: [0, 4, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                        >
+                          <Send size={18} />
+                        </motion.div>
+                      </motion.button>
+                    </motion.div>
+
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={isInView ? { opacity: 1 } : {}}
+                      transition={{ delay: 1, duration: 0.5 }}
+                      className="text-center text-xs text-white/40 font-roboto"
+                    >
+                      Seus dados estão protegidos conforme a LGPD.
+                    </motion.p>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
