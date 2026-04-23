@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
           <div className="flex flex-col items-center md:items-start">
             <Image
-              src="/kaizu-secundario.svg"
+              src="/stoom-secundario.svg"
               alt="Stoom"
               width={160}
               height={48}

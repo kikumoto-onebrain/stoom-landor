@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center">
             <Image
-              src={isScrolled ? '/kaizu-primario.svg' : '/kaizu-secundario.svg'}
+              src={isScrolled ? '/stoom-primario.svg' : '/stoom-secundario.svg'}
               alt="Stoom"
               width={140}
               height={40}

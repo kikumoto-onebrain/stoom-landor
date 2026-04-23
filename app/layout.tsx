@@ -106,7 +106,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: '/favicon-kaizu.svg',
+    icon: '/favicon-stoom.svg',
   },
 };
 
