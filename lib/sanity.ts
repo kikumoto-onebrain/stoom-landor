@@ -51,3 +51,57 @@ export async function getConteudo(slug: string): Promise<Conteudo | null> {
     { slug }
   )
 }
+
+// ─── Cases ────────────────────────────────────────────────────────────────────
+
+export interface CaseResultado {
+  _key: string
+  valor: string
+  metrica: string
+}
+
+export interface CaseDepoimento {
+  texto: string
+  nome: string
+  cargo: string
+}
+
+export interface Case {
+  _id: string
+  titulo: string
+  slug: { current: string }
+  empresa: string
+  segmento?: string
+  logoEmpresa?: { asset: { url: string } }
+  imagemCapa?: { asset: { url: string }; hotspot?: unknown }
+  descricaoCurta?: string
+  corpo?: unknown[]
+  depoimento?: CaseDepoimento
+  resultados?: CaseResultado[]
+  status: string
+  dataPublicacao?: string
+}
+
+export async function getCases(): Promise<Case[]> {
+  return client.fetch(`
+    *[_type == "case" && status == "publicado"] | order(dataPublicacao desc) {
+      _id, titulo, slug, empresa, segmento, descricaoCurta, dataPublicacao,
+      "logoEmpresa": logoEmpresa { asset->{ url } },
+      "imagemCapa": imagemCapa { asset->{ url }, hotspot }
+    }
+  `)
+}
+
+export async function getCase(slug: string): Promise<Case | null> {
+  return client.fetch(
+    `*[_type == "case" && slug.current == $slug][0] {
+      _id, titulo, slug, empresa, segmento, descricaoCurta, dataPublicacao, status,
+      "logoEmpresa": logoEmpresa { asset->{ url } },
+      "imagemCapa": imagemCapa { asset->{ url }, hotspot },
+      corpo[] { ..., _type == "image" => { ..., asset->{ url } } },
+      depoimento,
+      resultados
+    }`,
+    { slug }
+  )
+}
