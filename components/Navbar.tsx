@@ -64,27 +64,16 @@ export default function Navbar() {
               Segmentos
             </a>
 
-            <a
-              href="#como-funciona"
+            <Link
+              href="/cases"
               className={`font-roboto font-medium transition-colors ${
                 isScrolled
                   ? 'text-brand-primary hover:text-brand-highlight'
                   : 'text-white hover:text-brand-highlight'
               }`}
             >
-              Como Funciona
-            </a>
-
-            <a
-              href="#tecnologia"
-              className={`font-roboto font-medium transition-colors ${
-                isScrolled
-                  ? 'text-brand-primary hover:text-brand-highlight'
-                  : 'text-white hover:text-brand-highlight'
-              }`}
-            >
-              Tecnologia
-            </a>
+              Cases
+            </Link>
 
             <Link
               href="/conteudos"
@@ -150,21 +139,13 @@ export default function Navbar() {
                 Segmentos
               </a>
 
-              <a
-                href="#como-funciona"
+              <Link
+                href="/cases"
                 className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Como Funciona
-              </a>
-
-              <a
-                href="#tecnologia"
-                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Tecnologia
-              </a>
+                Cases
+              </Link>
 
               <Link
                 href="/conteudos"
