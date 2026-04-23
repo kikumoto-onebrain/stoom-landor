@@ -7,6 +7,7 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }],
   },
+  transpilePackages: ['sanity', 'next-sanity', '@sanity/ui', '@sanity/icons', 'styled-components'],
 };
 
 module.exports = nextConfig;
