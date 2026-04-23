@@ -97,9 +97,9 @@ export default function Navbar() {
             <Image
               src={isScrolled ? '/selo-landor-black.svg' : '/selo-landor-white.svg'}
               alt="Selo de Qualidade"
-              width={80}
-              height={40}
-              className="h-9 w-auto opacity-90"
+              width={110}
+              height={55}
+              className="h-12 w-auto opacity-90"
             />
           </div>
 
@@ -166,9 +166,9 @@ export default function Navbar() {
                 <Image
                   src="/selo-landor-black.svg"
                   alt="Selo de Qualidade"
-                  width={100}
-                  height={50}
-                  className="h-10 w-auto opacity-80"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto opacity-80"
                 />
               </div>
             </div>
