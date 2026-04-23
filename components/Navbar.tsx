@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -85,6 +86,17 @@ export default function Navbar() {
               Tecnologia
             </a>
 
+            <Link
+              href="/conteudos"
+              className={`font-roboto font-medium transition-colors ${
+                isScrolled
+                  ? 'text-brand-primary hover:text-brand-highlight'
+                  : 'text-white hover:text-brand-highlight'
+              }`}
+            >
+              Conteúdos
+            </Link>
+
             <a
               href="#contato"
               className="px-6 py-3 bg-brand-secondary text-white font-roboto font-medium rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-105"
@@ -153,6 +165,14 @@ export default function Navbar() {
               >
                 Tecnologia
               </a>
+
+              <Link
+                href="/conteudos"
+                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Conteúdos
+              </Link>
 
               <a
                 href="#contato"
