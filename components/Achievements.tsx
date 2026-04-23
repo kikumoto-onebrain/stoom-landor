@@ -91,7 +91,7 @@ export default function Achievements() {
           </h2>
 
           <p className="text-gray-600 font-roboto max-w-2xl mx-auto leading-relaxed mt-6">
-            Diferenciais que tornam a Kaizu a escolha certa para quem busca eficiência logística
+            Diferenciais que tornam a Stoom a escolha certa para quem busca eficiência logística
             com tecnologia de ponta.
           </p>
         </motion.div>

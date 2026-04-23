@@ -2,7 +2,7 @@
 
 import { MetadataRoute } from 'next';
 
-const SITE_URL = 'https://kaizu.com.br';
+const SITE_URL = 'https://stoom.com.br';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

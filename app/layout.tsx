@@ -16,18 +16,18 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const SITE_URL = 'https://kaizu-landor.vercel.app/';
+const SITE_URL = 'https://stoom-landor.vercel.app/';
 const OG_IMAGE = `${SITE_URL}/thumb-kaizu.webp`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
-  title: 'Kaizu | Smart lockers e plataforma para gestão de entregas',
+  title: 'Stoom | Smart lockers e plataforma para gestão de entregas',
   description:
-    'A Kaizu combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
+    'A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
 
   keywords: [
-    'Kaizu',
+    'Stoom',
     'smart locker',
     'smart lockers',
     'armário inteligente',
@@ -62,17 +62,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/`,
-    siteName: 'Kaizu',
+    siteName: 'Stoom',
     locale: 'pt_BR',
-    title: 'Kaizu | Smart lockers e plataforma para gestão de entregas',
+    title: 'Stoom | Smart lockers e plataforma para gestão de entregas',
     description:
-      'A Kaizu combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
+      'A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
     images: [
       {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'Kaizu — Smart lockers e plataforma de gestão logística',
+        alt: 'Stoom — Smart lockers e plataforma de gestão logística',
         type: 'image/webp',
       },
     ],
@@ -80,9 +80,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Kaizu | Smart lockers e plataforma para gestão de entregas',
+    title: 'Stoom | Smart lockers e plataforma para gestão de entregas',
     description:
-      'A Kaizu combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
+      'A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
     images: [OG_IMAGE],
   },
 

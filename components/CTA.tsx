@@ -54,7 +54,7 @@ export default function CTA() {
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         <img
           src="/locker-kaizu.webp"
-          alt="Contato Kaizu"
+          alt="Contato Stoom"
           className="w-full h-full object-cover"
         />
         <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 bg-brand-primary" />
@@ -92,7 +92,7 @@ export default function CTA() {
                   className="w-2 h-2 bg-brand-highlight rounded-full"
                 />
                 <span className="text-brand-highlight font-roboto font-medium text-sm">
-                  Fale com a Kaizu
+                  Fale com a Stoom
                 </span>
               </motion.div>
 

@@ -32,7 +32,7 @@ export default function Navbar() {
           <a href="#" className="flex items-center">
             <Image
               src={isScrolled ? '/kaizu-primario.svg' : '/kaizu-secundario.svg'}
-              alt="Kaizu"
+              alt="Stoom"
               width={140}
               height={40}
               className="h-10 w-auto"

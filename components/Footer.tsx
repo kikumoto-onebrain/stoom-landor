@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <Image
               src="/kaizu-secundario.svg"
-              alt="Kaizu"
+              alt="Stoom"
               width={160}
               height={48}
               className="h-10 w-auto mb-4"
@@ -49,7 +49,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8">
           <p className="text-white/50 font-roboto text-sm text-center">
-            © 2026 Kaizu. Todos os direitos reservados.
+            © 2026 Stoom. Todos os direitos reservados.
           </p>
         </div>
       </div>

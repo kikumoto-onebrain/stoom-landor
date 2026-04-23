@@ -15,11 +15,11 @@ const faqs = [
   },
   {
     q: 'Smart lockers podem ser usados em condomínios?',
-    a: 'Sim, os lockers Kaizu são ideais para condomínios residenciais e comerciais. Eles eliminam o problema de encomendas acumuladas na portaria, oferecem disponibilidade 24/7 e enviam notificações automáticas para os moradores.',
+    a: 'Sim, os lockers Stoom são ideais para condomínios residenciais e comerciais. Eles eliminam o problema de encomendas acumuladas na portaria, oferecem disponibilidade 24/7 e enviam notificações automáticas para os moradores.',
   },
   {
     q: 'Empresas podem usar lockers para logística?',
-    a: 'Com certeza. Os lockers Kaizu atendem empresas de todos os portes para controle de distribuição de equipamentos, materiais e encomendas internas. É possível configurar fluxos de acesso por setor, equipe ou hierarquia.',
+    a: 'Com certeza. Os lockers Stoom atendem empresas de todos os portes para controle de distribuição de equipamentos, materiais e encomendas internas. É possível configurar fluxos de acesso por setor, equipe ou hierarquia.',
   },
   {
     q: 'Smart lockers podem ser utilizados como guarda-volumes?',
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'É possível integrar lockers com sistemas existentes?',
-    a: 'Sim. A Kaizu oferece integração via API com sistemas corporativos, ERPs, plataformas de e-commerce e sistemas de gestão condominial. Nossa equipe técnica acompanha todo o processo de integração.',
+    a: 'Sim. A Stoom oferece integração via API com sistemas corporativos, ERPs, plataformas de e-commerce e sistemas de gestão condominial. Nossa equipe técnica acompanha todo o processo de integração.',
   },
 ];
 
@@ -62,7 +62,7 @@ export default function FAQ() {
             </h2>
 
             <p className="text-gray-600 font-roboto leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              Tire suas dúvidas sobre os smart lockers Kaizu e descubra como a solução pode
+              Tire suas dúvidas sobre os smart lockers Stoom e descubra como a solução pode
               transformar sua operação.
             </p>
           </motion.div>

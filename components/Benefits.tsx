@@ -62,7 +62,7 @@ export default function Benefits() {
             </h2>
 
             <p className="text-gray-600 font-roboto mb-10 leading-relaxed max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-              Mais do que lockers, a Kaizu entrega uma solução completa para operações
+              Mais do que lockers, a Stoom entrega uma solução completa para operações
               que exigem inteligência logística, gestão centralizada e uma experiência
               alinhada à realidade de cada negócio.
             </p>

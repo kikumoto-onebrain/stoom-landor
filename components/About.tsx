@@ -141,7 +141,7 @@ export default function About() {
           </h2>
 
           <p className="text-gray-600 font-roboto max-w-3xl mx-auto mt-6 leading-relaxed">
-            A Kaizu combina lockers inteligentes com uma plataforma digital para automatizar o
+            A Stoom combina lockers inteligentes com uma plataforma digital para automatizar o
             recebimento, armazenamento e retirada de encomendas.
           </p>
         </motion.div>
