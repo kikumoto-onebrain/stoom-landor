@@ -95,7 +95,7 @@ export default function Navbar() {
             <div className={`w-px h-6 ${isScrolled ? 'bg-gray-200' : 'bg-white/20'}`} />
 
             <Image
-              src="/selo-sites.svg"
+              src={isScrolled ? '/selo-landor-black.svg' : '/selo-landor-white.svg'}
               alt="Selo de Qualidade"
               width={80}
               height={40}
@@ -164,7 +164,7 @@ export default function Navbar() {
 
               <div className="flex justify-center pt-2 pb-1">
                 <Image
-                  src="/selo-sites.svg"
+                  src="/selo-landor-black.svg"
                   alt="Selo de Qualidade"
                   width={100}
                   height={50}
