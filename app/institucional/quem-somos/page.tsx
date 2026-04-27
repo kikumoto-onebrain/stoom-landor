@@ -197,12 +197,13 @@ export default function QuemSomosPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 items-stretch mb-10">
             {ecosistema.map((empresa, i) => {
+              const cardClass = `h-full flex flex-col bg-white/5 border border-white/10 rounded-xl p-6 transition-colors ${empresa.href ? 'hover:bg-white/10' : ''}`
               const inner = (
                 <>
                   <h3 className="font-outfit text-lg font-bold text-white mb-2">{empresa.nome}</h3>
-                  <p className="font-roboto text-sm text-white/60 leading-relaxed">{empresa.descricao}</p>
+                  <p className="font-roboto text-sm text-white/60 leading-relaxed flex-1">{empresa.descricao}</p>
                   {empresa.href && (
                     <span className="inline-block mt-3 text-xs font-roboto text-brand-highlight font-medium">
                       Saiba mais →
@@ -210,7 +211,6 @@ export default function QuemSomosPage() {
                   )}
                 </>
               )
-              const cardClass = `bg-white/5 border border-white/10 rounded-xl p-6 transition-colors ${empresa.href ? 'hover:bg-white/10 cursor-pointer' : ''}`
               return (
                 <motion.div
                   key={i}
@@ -218,9 +218,10 @@ export default function QuemSomosPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="h-full"
                 >
                   {empresa.href ? (
-                    <a href={empresa.href} target="_blank" rel="noopener noreferrer" className={`block ${cardClass}`}>
+                    <a href={empresa.href} target="_blank" rel="noopener noreferrer" className={cardClass}>
                       {inner}
                     </a>
                   ) : (
@@ -236,7 +237,7 @@ export default function QuemSomosPage() {
               href="https://www.landor.com.br/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-roboto text-brand-highlight hover:text-brand-highlight/80 transition-colors font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-brand-highlight text-brand-highlight font-roboto font-medium rounded-sm hover:bg-brand-highlight hover:text-brand-primary transition-all"
             >
               Conheça o ecossistema Landor →
             </a>
