@@ -22,12 +22,6 @@ const ecosistema = [
   { nome: 'Grilo', descricao: 'Validação de desenvolvedores por análise prática de código real.' },
 ]
 
-const numeros = [
-  { valor: '+10', label: 'anos no mercado' },
-  { valor: '+200', label: 'profissionais no ecossistema' },
-  { valor: 'R$2bi+', label: 'em TPV processado anualmente' },
-  { valor: 'Top 4', label: 'Great Place to Work' },
-]
 
 export default function QuemSomosPage() {
   return (
@@ -91,21 +85,19 @@ export default function QuemSomosPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-2 gap-6"
+              className="flex items-center justify-center"
             >
-              {numeros.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-brand-light rounded-xl p-6 flex flex-col gap-2"
-                >
-                  <span className="font-outfit text-3xl font-bold text-brand-secondary">
-                    {item.valor}
-                  </span>
-                  <span className="font-roboto text-sm text-brand-primary/70">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
+              <div className="bg-brand-light rounded-2xl p-12 text-center">
+                <span className="font-outfit text-7xl font-bold text-brand-secondary block mb-3">
+                  +10
+                </span>
+                <span className="font-roboto text-lg text-brand-primary/70 font-medium">
+                  anos no mercado
+                </span>
+                <p className="font-roboto text-sm text-brand-primary/50 mt-3 max-w-xs">
+                  Desde 2014 transformando a logística de entregas com tecnologia
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
