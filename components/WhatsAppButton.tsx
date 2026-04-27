@@ -1,9 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/studio-content')) return null;
+
   return (
     <motion.a
       href="https://wa.me/5519971525530?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20lockers%20da%20Stoom."
