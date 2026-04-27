@@ -1,23 +1,43 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const institucionalLinks = [
+  { label: 'Quem somos', href: '/institucional/quem-somos' },
+]
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isInstitucionalOpen, setIsInstitucionalOpen] = useState(false);
+  const [isMobileInstitucionalOpen, setIsMobileInstitucionalOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsInstitucionalOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const linkClass = `font-roboto font-medium transition-colors ${
+    isScrolled ? 'text-brand-primary hover:text-brand-highlight' : 'text-white hover:text-brand-highlight'
+  }`;
 
   return (
     <motion.nav
@@ -41,50 +61,52 @@ export default function Navbar() {
             />
           </Link>
 
+          {/* Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="/#solucao"
-              className={`font-roboto font-medium transition-colors ${
-                isScrolled
-                  ? 'text-brand-primary hover:text-brand-highlight'
-                  : 'text-white hover:text-brand-highlight'
-              }`}
-            >
-              Solução
-            </a>
+            <a href="/#solucao" className={linkClass}>Solução</a>
+            <a href="/#segmentos" className={linkClass}>Segmentos</a>
 
-            <a
-              href="/#segmentos"
-              className={`font-roboto font-medium transition-colors ${
-                isScrolled
-                  ? 'text-brand-primary hover:text-brand-highlight'
-                  : 'text-white hover:text-brand-highlight'
-              }`}
-            >
-              Segmentos
-            </a>
+            <Link href="/cases" className={linkClass}>Cases</Link>
+            <Link href="/conteudos" className={linkClass}>Conteúdos</Link>
 
-            <Link
-              href="/cases"
-              className={`font-roboto font-medium transition-colors ${
-                isScrolled
-                  ? 'text-brand-primary hover:text-brand-highlight'
-                  : 'text-white hover:text-brand-highlight'
-              }`}
-            >
-              Cases
-            </Link>
+            {/* Dropdown Institucional */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsInstitucionalOpen((v) => !v)}
+                className={`flex items-center gap-1 ${linkClass}`}
+              >
+                Institucional
+                <ChevronDown
+                  size={15}
+                  className={`transition-transform duration-200 ${isInstitucionalOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
 
-            <Link
-              href="/conteudos"
-              className={`font-roboto font-medium transition-colors ${
-                isScrolled
-                  ? 'text-brand-primary hover:text-brand-highlight'
-                  : 'text-white hover:text-brand-highlight'
-              }`}
-            >
-              Conteúdos
-            </Link>
+              <AnimatePresence>
+                {isInstitucionalOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
+                  >
+                    {institucionalLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsInstitucionalOpen(false)}
+                        className={`block px-4 py-3 text-sm font-roboto font-medium transition-colors hover:bg-brand-light hover:text-brand-secondary ${
+                          pathname === item.href ? 'text-brand-secondary bg-brand-light' : 'text-brand-primary'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <a
               href="/#contato"
@@ -116,6 +138,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -156,6 +179,41 @@ export default function Navbar() {
               >
                 Conteúdos
               </Link>
+
+              {/* Institucional mobile */}
+              <div>
+                <button
+                  onClick={() => setIsMobileInstitucionalOpen((v) => !v)}
+                  className="flex items-center gap-1 text-brand-primary hover:text-brand-highlight font-roboto font-medium w-full"
+                >
+                  Institucional
+                  <ChevronDown
+                    size={15}
+                    className={`transition-transform duration-200 ${isMobileInstitucionalOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isMobileInstitucionalOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="ml-4 mt-2 space-y-3"
+                    >
+                      {institucionalLinks.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block text-brand-primary/70 hover:text-brand-secondary font-roboto text-sm font-medium"
+                          onClick={() => { setIsMobileMenuOpen(false); setIsMobileInstitucionalOpen(false); }}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <a
                 href="/#contato"
