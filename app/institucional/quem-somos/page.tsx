@@ -14,11 +14,11 @@ const valores = [
 ]
 
 const ecosistema = [
-  { nome: 'OneBrain', descricao: 'Outsourcing de talentos de TI com inteligência artificial.' },
-  { nome: 'FAST', descricao: 'Fábrica de software com IA, low-code e no-code.' },
-  { nome: 'Kolivo', descricao: 'Operações de TI inteligentes e monitoramento em tempo real.' },
-  { nome: 'Outforce', descricao: 'Tech hunting e aquisição de profissionais de tecnologia.' },
-  { nome: 'Grilo', descricao: 'Validação de desenvolvedores por análise prática de código real.' },
+  { nome: 'OneBrain', descricao: 'Outsourcing de talentos de TI com inteligência artificial.', href: 'https://outsourcing.onebrain.com.br/' },
+  { nome: 'FAST', descricao: 'Fábrica de software com IA, low-code e no-code.', href: 'https://fast.onebrain.com.br/' },
+  { nome: 'Kolivo', descricao: 'Operações de TI inteligentes e monitoramento em tempo real.', href: null },
+  { nome: 'Outforce', descricao: 'Tech hunting e aquisição de profissionais de tecnologia.', href: 'https://www.outforce.com.br/' },
+  { nome: 'Grilo', descricao: 'Validação de desenvolvedores por análise prática de código real.', href: 'https://grilo.com.br/' },
 ]
 
 
@@ -198,19 +198,37 @@ export default function QuemSomosPage() {
           </motion.div>
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
-            {ecosistema.map((empresa, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
-              >
-                <h3 className="font-outfit text-lg font-bold text-white mb-2">{empresa.nome}</h3>
-                <p className="font-roboto text-sm text-white/60 leading-relaxed">{empresa.descricao}</p>
-              </motion.div>
-            ))}
+            {ecosistema.map((empresa, i) => {
+              const inner = (
+                <>
+                  <h3 className="font-outfit text-lg font-bold text-white mb-2">{empresa.nome}</h3>
+                  <p className="font-roboto text-sm text-white/60 leading-relaxed">{empresa.descricao}</p>
+                  {empresa.href && (
+                    <span className="inline-block mt-3 text-xs font-roboto text-brand-highlight font-medium">
+                      Conhecer →
+                    </span>
+                  )}
+                </>
+              )
+              const cardClass = `bg-white/5 border border-white/10 rounded-xl p-6 transition-colors ${empresa.href ? 'hover:bg-white/10 cursor-pointer' : ''}`
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                >
+                  {empresa.href ? (
+                    <a href={empresa.href} target="_blank" rel="noopener noreferrer" className={`block ${cardClass}`}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <div className={cardClass}>{inner}</div>
+                  )}
+                </motion.div>
+              )
+            })}
           </div>
 
           <div className="text-center">
