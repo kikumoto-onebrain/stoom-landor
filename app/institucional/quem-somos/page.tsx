@@ -16,7 +16,7 @@ const valores = [
 const ecosistema = [
   { nome: 'OneBrain', descricao: 'Outsourcing de talentos de TI com inteligência artificial.', href: 'https://outsourcing.onebrain.com.br/' },
   { nome: 'FAST', descricao: 'Fábrica de software com IA, low-code e no-code.', href: 'https://fast.onebrain.com.br/' },
-  { nome: 'Kolivo', descricao: 'Operações de TI inteligentes e monitoramento em tempo real.', href: null },
+  { nome: 'Kolivo', descricao: 'Operações de TI inteligentes e monitoramento em tempo real.', href: 'https://www.kolivo.com.br/' },
   { nome: 'Outforce', descricao: 'Tech hunting e aquisição de profissionais de tecnologia.', href: 'https://www.outforce.com.br/' },
   { nome: 'Grilo', descricao: 'Validação de desenvolvedores por análise prática de código real.', href: 'https://grilo.com.br/' },
 ]
