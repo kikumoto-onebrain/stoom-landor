@@ -30,7 +30,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src={isScrolled ? '/stoom-primario.svg' : '/stoom-secundario.svg'}
               alt="Stoom"
@@ -39,11 +39,11 @@ export default function Navbar() {
               className="h-10 w-auto"
               priority
             />
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="#solucao"
+              href="/#solucao"
               className={`font-roboto font-medium transition-colors ${
                 isScrolled
                   ? 'text-brand-primary hover:text-brand-highlight'
@@ -54,7 +54,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="#segmentos"
+              href="/#segmentos"
               className={`font-roboto font-medium transition-colors ${
                 isScrolled
                   ? 'text-brand-primary hover:text-brand-highlight'
@@ -87,7 +87,7 @@ export default function Navbar() {
             </Link>
 
             <a
-              href="#contato"
+              href="/#contato"
               className="px-6 py-3 bg-brand-secondary text-white font-roboto font-medium rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-105"
             >
               Solicite uma demonstração
@@ -95,13 +95,15 @@ export default function Navbar() {
 
             <div className={`w-px h-6 ${isScrolled ? 'bg-gray-200' : 'bg-white/20'}`} />
 
-            <Image
-              src={isScrolled ? '/selo-landor-black.svg' : '/selo-landor-white.svg'}
-              alt="Selo de Qualidade"
-              width={110}
-              height={55}
-              className="h-12 w-auto opacity-90"
-            />
+            <a href="https://www.landor.com.br/" target="_blank" rel="noopener noreferrer">
+              <Image
+                src={isScrolled ? '/selo-landor-black.svg' : '/selo-landor-white.svg'}
+                alt="Selo de Qualidade"
+                width={110}
+                height={55}
+                className="h-12 w-auto opacity-90"
+              />
+            </a>
           </div>
 
           <button
@@ -124,7 +126,7 @@ export default function Navbar() {
           >
             <div className="px-6 py-4 space-y-4">
               <a
-                href="#solucao"
+                href="/#solucao"
                 className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -132,7 +134,7 @@ export default function Navbar() {
               </a>
 
               <a
-                href="#segmentos"
+                href="/#segmentos"
                 className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -156,7 +158,7 @@ export default function Navbar() {
               </Link>
 
               <a
-                href="#contato"
+                href="/#contato"
                 className="block px-6 py-3 bg-brand-secondary text-white text-center font-roboto font-medium rounded-sm"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -164,13 +166,15 @@ export default function Navbar() {
               </a>
 
               <div className="flex justify-center pt-2 pb-1">
-                <Image
-                  src="/selo-landor-black.svg"
-                  alt="Selo de Qualidade"
-                  width={120}
-                  height={60}
-                  className="h-12 w-auto opacity-80"
-                />
+                <a href="https://www.landor.com.br/" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/selo-landor-black.svg"
+                    alt="Selo de Qualidade"
+                    width={120}
+                    height={60}
+                    className="h-12 w-auto opacity-80"
+                  />
+                </a>
               </div>
             </div>
           </motion.div>

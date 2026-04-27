@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Linkedin, Instagram } from 'lucide-react';
 
 const socialLinks = [
@@ -14,13 +15,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
           <div className="flex flex-col items-center md:items-start">
-            <Image
-              src="/stoom-secundario.svg"
-              alt="Stoom"
-              width={160}
-              height={48}
-              className="h-10 w-auto"
-            />
+            <Link href="/">
+              <Image
+                src="/stoom-secundario.svg"
+                alt="Stoom"
+                width={160}
+                height={48}
+                className="h-10 w-auto"
+              />
+            </Link>
           </div>
 
           <div className="flex items-center justify-center md:justify-end gap-3">
