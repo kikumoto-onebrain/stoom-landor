@@ -7,9 +7,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 const valores = [
-  { titulo: 'Foco no cliente', descricao: 'Cada decisão começa pela experiência de quem usa nosso produto.' },
-  { titulo: 'Inovação contínua', descricao: 'Tecnologia que evolui junto com as demandas do mercado.' },
-  { titulo: 'Resultado', descricao: 'Compromisso com entregas que geram impacto real no negócio do cliente.' },
+  { titulo: 'Flexibilidade + Colaboração' },
+  { titulo: 'Foco Cliente + Seja transparente' },
+  { titulo: 'Simplificação + Resultado' },
+  { titulo: 'Work hard + Play hard' },
 ]
 
 const ecosistema = [
@@ -126,9 +127,6 @@ export default function QuemSomosPage() {
               className="flex flex-col gap-6"
             >
               <div className="bg-white rounded-2xl p-8 border border-gray-100 flex-1">
-                <div className="w-12 h-12 bg-brand-secondary/10 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-brand-secondary text-xl font-outfit font-bold">M</span>
-                </div>
                 <h3 className="font-outfit text-xl font-bold text-brand-primary mb-3">Missão</h3>
                 <p className="font-roboto text-gray-600 leading-relaxed">
                   Simplificar e automatizar a logística de entregas por meio de smart lockers seguros e conectados, criando uma experiência de compra superior para consumidores e empresas.
@@ -136,9 +134,6 @@ export default function QuemSomosPage() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 border border-gray-100 flex-1">
-                <div className="w-12 h-12 bg-brand-highlight/10 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-brand-highlight text-xl font-outfit font-bold">V</span>
-                </div>
                 <h3 className="font-outfit text-xl font-bold text-brand-primary mb-3">Visão</h3>
                 <p className="font-roboto text-gray-600 leading-relaxed">
                   Ser a referência em smart lockers e gestão de entregas no Brasil, impulsionando a transformação logística com tecnologia acessível e escalável.
@@ -170,11 +165,10 @@ export default function QuemSomosPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="font-outfit text-2xl font-bold text-brand-primary mb-6 text-center">Valores</h3>
-            <div className="grid sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {valores.map((v, i) => (
-                <div key={i} className="bg-white rounded-xl p-6 border border-gray-100">
-                  <h4 className="font-outfit font-semibold text-brand-primary mb-2">{v.titulo}</h4>
-                  <p className="font-roboto text-sm text-gray-500 leading-relaxed">{v.descricao}</p>
+                <div key={i} className="bg-white rounded-xl p-6 border border-gray-100 flex items-center justify-center text-center">
+                  <h4 className="font-outfit font-semibold text-brand-primary">{v.titulo}</h4>
                 </div>
               ))}
             </div>
@@ -203,7 +197,7 @@ export default function QuemSomosPage() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
             {ecosistema.map((empresa, i) => (
               <motion.div
                 key={i}
