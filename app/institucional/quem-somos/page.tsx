@@ -205,7 +205,7 @@ export default function QuemSomosPage() {
                   <p className="font-roboto text-sm text-white/60 leading-relaxed">{empresa.descricao}</p>
                   {empresa.href && (
                     <span className="inline-block mt-3 text-xs font-roboto text-brand-highlight font-medium">
-                      Conhecer →
+                      Saiba mais →
                     </span>
                   )}
                 </>
