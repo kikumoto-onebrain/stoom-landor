@@ -206,7 +206,7 @@ export default function QuemSomosPage() {
                   <p className="font-roboto text-sm text-white/60 leading-relaxed flex-1">{empresa.descricao}</p>
                   {empresa.href && (
                     <span className="inline-block mt-3 text-xs font-roboto text-brand-highlight font-medium">
-                      Saiba mais →
+                      Saiba mais
                     </span>
                   )}
                 </>
@@ -239,7 +239,7 @@ export default function QuemSomosPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 border border-brand-highlight text-brand-highlight font-roboto font-medium rounded-sm hover:bg-brand-highlight hover:text-brand-primary transition-all"
             >
-              Conheça o ecossistema Landor →
+              Conheça o ecossistema Landor
             </a>
           </div>
         </div>
