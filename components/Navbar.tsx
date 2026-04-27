@@ -63,16 +63,14 @@ export default function Navbar() {
 
           {/* Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/#solucao" className={linkClass}>Solução</a>
-            <a href="/#segmentos" className={linkClass}>Segmentos</a>
-
-            <Link href="/cases" className={linkClass}>Cases</Link>
-            <Link href="/conteudos" className={linkClass}>Conteúdos</Link>
-
             {/* Dropdown Institucional */}
-            <div className="relative" ref={dropdownRef}>
+            <div
+              className="relative"
+              ref={dropdownRef}
+              onMouseEnter={() => setIsInstitucionalOpen(true)}
+              onMouseLeave={() => setIsInstitucionalOpen(false)}
+            >
               <button
-                onClick={() => setIsInstitucionalOpen((v) => !v)}
                 className={`flex items-center gap-1 ${linkClass}`}
               >
                 Institucional
@@ -107,6 +105,11 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+
+            <a href="/#solucao" className={linkClass}>Solução</a>
+            <a href="/#segmentos" className={linkClass}>Segmentos</a>
+            <Link href="/cases" className={linkClass}>Cases</Link>
+            <Link href="/conteudos" className={linkClass}>Conteúdos</Link>
 
             <a
               href="/#contato"
