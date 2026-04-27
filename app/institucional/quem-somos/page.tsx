@@ -8,10 +8,8 @@ import Footer from '@/components/Footer'
 
 const valores = [
   { titulo: 'Foco no cliente', descricao: 'Cada decisão começa pela experiência de quem usa nosso produto.' },
-  { titulo: 'Transparência', descricao: 'Relações abertas com clientes, parceiros e com o ecossistema.' },
   { titulo: 'Inovação contínua', descricao: 'Tecnologia que evolui junto com as demandas do mercado.' },
   { titulo: 'Resultado', descricao: 'Compromisso com entregas que geram impacto real no negócio do cliente.' },
-  { titulo: 'Colaboração', descricao: 'Crescemos juntos — com nossos clientes e com as empresas do ecossistema.' },
 ]
 
 const ecosistema = [
@@ -118,50 +116,63 @@ export default function QuemSomosPage() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Missão + Visão ao lado da imagem */}
+          <div className="grid lg:grid-cols-2 gap-10 items-stretch mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-2xl p-8 border border-gray-100"
+              transition={{ duration: 0.6 }}
+              className="flex flex-col gap-6"
             >
-              <div className="w-12 h-12 bg-brand-secondary/10 rounded-xl flex items-center justify-center mb-4">
-                <span className="text-brand-secondary text-xl font-outfit font-bold">M</span>
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 flex-1">
+                <div className="w-12 h-12 bg-brand-secondary/10 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-brand-secondary text-xl font-outfit font-bold">M</span>
+                </div>
+                <h3 className="font-outfit text-xl font-bold text-brand-primary mb-3">Missão</h3>
+                <p className="font-roboto text-gray-600 leading-relaxed">
+                  Simplificar e automatizar a logística de entregas por meio de smart lockers seguros e conectados, criando uma experiência de compra superior para consumidores e empresas.
+                </p>
               </div>
-              <h3 className="font-outfit text-xl font-bold text-brand-primary mb-3">Missão</h3>
-              <p className="font-roboto text-gray-600 leading-relaxed">
-                Simplificar e automatizar a logística de entregas por meio de smart lockers seguros e conectados, criando uma experiência de compra superior para consumidores e empresas.
-              </p>
+
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 flex-1">
+                <div className="w-12 h-12 bg-brand-highlight/10 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-brand-highlight text-xl font-outfit font-bold">V</span>
+                </div>
+                <h3 className="font-outfit text-xl font-bold text-brand-primary mb-3">Visão</h3>
+                <p className="font-roboto text-gray-600 leading-relaxed">
+                  Ser a referência em smart lockers e gestão de entregas no Brasil, impulsionando a transformação logística com tecnologia acessível e escalável.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-2xl p-8 border border-gray-100"
+              transition={{ duration: 0.6 }}
+              className="relative rounded-2xl overflow-hidden min-h-[360px]"
             >
-              <div className="w-12 h-12 bg-brand-highlight/10 rounded-xl flex items-center justify-center mb-4">
-                <span className="text-brand-highlight text-xl font-outfit font-bold">V</span>
-              </div>
-              <h3 className="font-outfit text-xl font-bold text-brand-primary mb-3">Visão</h3>
-              <p className="font-roboto text-gray-600 leading-relaxed">
-                Ser a referência em smart lockers e gestão de entregas no Brasil, impulsionando a transformação logística com tecnologia acessível e escalável.
-              </p>
+              <Image
+                src="/smart-locker.webp"
+                alt="Smart locker Stoom"
+                fill
+                className="object-cover"
+              />
             </motion.div>
           </div>
 
+          {/* Valores */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="font-outfit text-2xl font-bold text-brand-primary mb-6 text-center">Valores</h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid sm:grid-cols-3 gap-6">
               {valores.map((v, i) => (
-                <div key={i} className="bg-white rounded-xl p-5 border border-gray-100">
+                <div key={i} className="bg-white rounded-xl p-6 border border-gray-100">
                   <h4 className="font-outfit font-semibold text-brand-primary mb-2">{v.titulo}</h4>
                   <p className="font-roboto text-sm text-gray-500 leading-relaxed">{v.descricao}</p>
                 </div>
