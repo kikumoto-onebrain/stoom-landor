@@ -10,6 +10,7 @@ import { usePathname } from 'next/navigation';
 const institucionalLinks = [
   { label: 'Quem somos', href: '/institucional/quem-somos' },
   { label: 'Parceiros', href: '/institucional/parceiros' },
+  { label: 'Stoom na Mídia', href: '/stoom-na-midia' },
 ]
 
 export default function Navbar() {

@@ -52,6 +52,27 @@ export async function getConteudo(slug: string): Promise<Conteudo | null> {
   )
 }
 
+// ─── Mídia ────────────────────────────────────────────────────────────────────
+
+export interface Midia {
+  _id: string
+  titulo: string
+  veiculo: string
+  urlExterna: string
+  dataPublicacao?: string
+  imagem?: { asset: { url: string }; hotspot?: unknown }
+  status: string
+}
+
+export async function getMidias(): Promise<Midia[]> {
+  return client.fetch(`
+    *[_type == "midia" && status == "publicado"] | order(dataPublicacao desc) {
+      _id, titulo, veiculo, urlExterna, dataPublicacao,
+      "imagem": imagem { asset->{ url }, hotspot }
+    }
+  `)
+}
+
 // ─── Cases ────────────────────────────────────────────────────────────────────
 
 export interface CaseResultado {
