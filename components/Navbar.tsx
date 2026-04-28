@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 
 const institucionalLinks = [
   { label: 'Quem somos', href: '/institucional/quem-somos' },
+  { label: 'Parceiros', href: '/institucional/parceiros' },
 ]
 
 export default function Navbar() {
