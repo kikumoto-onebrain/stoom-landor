@@ -103,19 +103,6 @@ export default function CaseSlugClient({ item }: { item: Case }) {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-4"
           >
-            {/* Logo */}
-            {item.logoEmpresa?.asset?.url && (
-              <div className="bg-white rounded-sm px-5 py-3 w-fit">
-                <Image
-                  src={item.logoEmpresa.asset.url}
-                  alt={item.empresa}
-                  width={140}
-                  height={48}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
-            )}
-
             {item.segmento && (
               <span className="inline-block text-xs font-roboto font-medium px-3 py-1 rounded-full bg-brand-secondary/80 text-white w-fit">
                 {item.segmento}
