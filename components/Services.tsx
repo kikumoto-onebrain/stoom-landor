@@ -55,7 +55,7 @@ const segments = [
       'Gestão centralizada de acesso',
       'Relatórios de uso detalhados',
     ],
-    image: '/locker-industria.webp',
+    image: '/industria-locker.webp',
   },
   {
     id: 3,
