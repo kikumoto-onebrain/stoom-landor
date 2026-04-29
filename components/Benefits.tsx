@@ -106,7 +106,7 @@ export default function Benefits() {
                   scale: imageScale,
                   y: imageY,
                 }}
-                src="/locker-solucao.mp4"
+                src="/solucao-locker.mp4"
                 autoPlay
                 loop
                 muted
