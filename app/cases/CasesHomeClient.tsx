@@ -14,18 +14,21 @@ const depoimentos = [
     nome: 'Thiago Ferraz',
     cargo: 'CTO',
     empresa: 'Zee.Dog',
+    logo: '/logo-zeedog.svg',
   },
   {
     texto: 'Trabalhar com a Stoom tem sido uma jornada longa e de uma parceria muito frutífera. Sou cliente há 8 anos, desde a última empresa que liderei e eles sempre se mostraram extremamente profissionais, comprometidos e parceiros para entregar qualidade.',
     nome: 'Daniel Nepomuceno',
     cargo: 'Diretor',
     empresa: 'Tenda Atacadista',
+    logo: '/logo-tenda.svg',
   },
   {
     texto: 'Ser atendido pela Stoom me dá uma boa sensação de estar trabalhando com e entre amigos que comungam de um mesmo propósito. Em uma espiral qualitativa, meu suporte foi melhorando desde os primeiros ajustes que se fizeram necessários.',
     nome: 'Leonardo Pereira',
     cargo: 'Novos Negócios & Marketing',
     empresa: 'Editora Foco',
+    logo: '/logo-foco.webp',
   },
 ]
 
@@ -172,7 +175,11 @@ export default function CasesHomeClient({ cases }: { cases: Case[] }) {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="bg-white/5 border border-white/10 rounded-sm p-8 flex flex-col"
               >
-                <span className="text-4xl text-brand-secondary font-serif leading-none select-none mb-4">"</span>
+                <img
+                  src={d.logo}
+                  alt={`Logo ${d.empresa}`}
+                  className="h-8 max-w-[130px] object-contain object-left mb-4"
+                />
                 <p className="font-roboto text-white/75 text-sm leading-relaxed flex-1 mb-6">
                   {d.texto}
                 </p>
