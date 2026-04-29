@@ -70,7 +70,7 @@ const segments = [
       'Automação de processos logísticos',
       'Locker como ponto de estoque avançado',
     ],
-    image: '/locker-logistica.webp',
+    image: '/logistica-locker.webp',
   },
 ];
 
