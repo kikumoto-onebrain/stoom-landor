@@ -111,13 +111,11 @@ export default function ConteudosHomeClient({ conteudos, categorias }: Props) {
 
       {/* Hero */}
       <section className="bg-brand-primary pt-40 pb-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(#4cc9f0 1px, transparent 1px), linear-gradient(90deg, #4cc9f0 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
+        <img
+          src="/banner-conteudos.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <motion.div
