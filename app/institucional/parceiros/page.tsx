@@ -8,112 +8,112 @@ const parceiros = [
   {
     nome: 'Laurenti',
     descricao: 'Líder em Self-Checkout, com 5.000+ implementações no Brasil. Especialista em soluções inteligentes: Terminais Self-Checkout, Auto Atendimento e Smart Locker.',
-    logo: '/logos/laurenti.png',
+    logo: '/parceiros/logo-laurenti.svg',
   },
   {
     nome: 'Integracorp',
     descricao: 'Pioneiras em Portaria Remota, monitoramento remoto de segurança em condomínios e empresas, utilizando tecnologias sempre inovadoras.',
-    logo: '/logos/integracorp.png',
+    logo: '/parceiros/logo-integracorp.webp',
   },
   {
     nome: 'Pagar.me',
     descricao: 'Plataforma digital de serviços financeiros, capacitando negócios na recepção de pagamentos online, aprimorando a experiência do empreendedor brasileiro.',
-    logo: '/logos/pagarme.png',
+    logo: '/parceiros/logo-pagarme.svg',
   },
   {
     nome: 'Pay4Fun',
     descricao: 'Pay4Fun é uma carteira eletrônica pré-paga que ajuda a tornar o processo de pagamento mais prático e seguro.',
-    logo: '/logos/pay4fun.png',
+    logo: '/parceiros/logo-pay4fun.webp',
   },
   {
     nome: 'Plugg.to',
     descricao: 'O Plugg.To é um hub que integra o maior número de marketplaces do Brasil, proporcionando recursos para alavancar as vendas.',
-    logo: '/logos/pluggto.png',
+    logo: '/parceiros/logo-pluggto.svg',
   },
   {
     nome: 'SCM-SIGA',
     descricao: 'Atendimento de Suporte Online Protheus: Customizações, Consultoria e Suporte em módulos ERP, RH e programação, nível Master.',
-    logo: '/logos/scm-siga.png',
+    logo: '/parceiros/logo-scm.webp',
   },
   {
     nome: 'Vestme',
     descricao: 'O Hub da moda circular, online de roupas de segunda mão, gentilmente usadas que vão salvar seu closet, sua carteira e o planeta.',
-    logo: '/logos/vestme.png',
+    logo: '/parceiros/logo-vestme.webp',
   },
   {
     nome: 'Wave Commerce',
     descricao: 'Agência especializada em e-commerces e marketplaces, impulsionando resultados para lojas virtuais de médias e grandes empresas.',
-    logo: '/logos/wave-commerce.png',
+    logo: '/parceiros/logo-wave.webp',
   },
   {
     nome: 'Zhaz',
     descricao: 'Soluções em alta tecnologia, assistência em impressoras térmicas, leitores de códigos de barras, coletores de dados, entre outros produtos personalizados.',
-    logo: '/logos/zhaz.png',
+    logo: '/parceiros/logo-zhaz.webp',
   },
   {
     nome: 'Konduto',
     descricao: 'Pioneira no uso de tecnologias machine learning, a Konduto é uma empresa especializada na antifraude on-line.',
-    logo: '/logos/konduto.png',
+    logo: '/parceiros/logo-konduto.webp',
   },
   {
     nome: 'Koin',
     descricao: 'Plataforma certificada PCI, oferece os principais meios de pagamento e "buy now, pay later". Proteção Antifraude, com taxas reduzidas para Cartão de Crédito, Pix (in e out), Boleto e Pix Parcelado.',
-    logo: '/logos/koin.png',
+    logo: '/parceiros/logo-koin.svg',
   },
   {
     nome: 'PayPal',
     descricao: 'A PayPal oferece uma maneira inteligente e prática de realizar pagamentos on-line com mais comodidade ao usuário.',
-    logo: '/logos/paypal.png',
+    logo: '/parceiros/logo-paypal.svg',
   },
   {
     nome: 'E-commerce Brasil',
     descricao: 'Como o maior portal brasileiro de e-commerce, o E-commerce Brasil é referência quando o assunto é indicar as tendências e novidades do comércio on-line.',
-    logo: '/logos/ecommercebrasil.png',
+    logo: '/parceiros/logo-ecbr.svg',
   },
   {
     nome: 'ComSchool',
     descricao: 'A ComSchool é a única escola brasileira com o certificado da Associação Brasileira de Comércio Eletrônico, que é referência na educação do mercado digital.',
-    logo: '/logos/comschool.png',
+    logo: '/parceiros/logo-comschool.webp',
   },
   {
     nome: 'Deco',
     descricao: 'Desenvolvedora de storefronts de alta performance para lojas virtuais.',
-    logo: '/logos/deco.png',
+    logo: '/parceiros/logo-deco.webp',
   },
   {
     nome: 'Eficaz',
     descricao: 'Autoridade em e-commerce com expertise em oferecer soluções completas para levar seu negócio ao sucesso, com uma equipe tão preocupada com sua lucratividade quanto você.',
-    logo: '/logos/eficaz.png',
+    logo: '/parceiros/logo-eficaz.svg',
   },
   {
     nome: 'ClearSale',
     descricao: 'A ClearSale apresenta uma tecnologia antifraude de alta qualidade para garantir a segurança das plataformas.',
-    logo: '/logos/clearsale.png',
+    logo: '/parceiros/logo-clearsale.webp',
   },
   {
     nome: 'Campinas Tech',
     descricao: 'A Campinas Tech é um projeto que tem a parceria de várias startups, hubs de inovação e grandes empresas que promovem o incentivo de novos negócios de alto impacto.',
-    logo: '/logos/campinastech.png',
+    logo: '/parceiros/logo-campinastech.webp',
   },
   {
     nome: 'Biso',
     descricao: 'A Biso é uma solução ativa de BI focada 100% em seu e-commerce.',
-    logo: '/logos/biso.png',
+    logo: '/parceiros/logo-biso.webp',
   },
   {
     nome: 'Auaha',
     descricao: 'Agência de inovação e criatividade dedicada na transformação da presença digital.',
-    logo: '/logos/auaha.png',
+    logo: '/parceiros/logo-auaha.svg',
   },
   {
     nome: 'AnyMarket',
     descricao: 'Hub integrador de marketplaces líder na América Latina, simplificando a gestão de vendas.',
-    logo: '/logos/anymarket.png',
+    logo: '/parceiros/logo-anymarket.svg',
   },
   {
     nome: 'AWS',
     descricao: 'Líder em Self-Checkout, com 5.000+ implementações no Brasil. Especialista em soluções inteligentes: Terminais Self-Checkout, Auto Atendimento e Smart Locker.',
-    logo: '/logos/aws.png',
+    logo: '/parceiros/logo-aws.svg',
   },
 ]
 
@@ -157,6 +157,12 @@ export default function ParceirosPage() {
 
       {/* Hero */}
       <section className="relative bg-brand-primary pt-40 pb-24 overflow-hidden">
+        <img
+          src="/banner-parceiros.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-highlight rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-secondary rounded-full blur-3xl" />
