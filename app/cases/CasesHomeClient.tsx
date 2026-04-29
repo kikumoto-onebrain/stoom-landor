@@ -178,7 +178,7 @@ export default function CasesHomeClient({ cases }: { cases: Case[] }) {
                 <img
                   src={d.logo}
                   alt={`Logo ${d.empresa}`}
-                  className="h-8 max-w-[130px] object-contain object-left mb-4"
+                  className="h-12 max-w-[160px] object-contain object-left mb-4"
                 />
                 <p className="font-roboto text-white/75 text-sm leading-relaxed flex-1 mb-6">
                   {d.texto}
