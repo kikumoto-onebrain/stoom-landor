@@ -53,7 +53,7 @@ export default function CTA() {
     <section id="contato" ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         <img
-          src="/locker-kaizu.webp"
+          src="/stoom-locker.webp"
           alt="Contato Stoom"
           className="w-full h-full object-cover"
         />
