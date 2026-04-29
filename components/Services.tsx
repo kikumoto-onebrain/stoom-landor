@@ -24,7 +24,7 @@ const segments = [
       'Rastreio em tempo real',
       'Integração com plataformas de e-commerce',
     ],
-    image: '/locker-varejo.webp',
+    image: '/varejo-locker.webp',
   },
   {
     id: 1,
