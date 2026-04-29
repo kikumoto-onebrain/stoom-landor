@@ -155,8 +155,8 @@ export default function QuemSomosPage() {
               className="relative rounded-2xl overflow-hidden min-h-[360px]"
             >
               <Image
-                src="/smartlocker.webp"
-                alt="Smart locker Stoom"
+                src="/stoom-missao.webp"
+                alt="Missão Stoom"
                 fill
                 className="object-cover"
               />
