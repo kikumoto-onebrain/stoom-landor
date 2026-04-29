@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
   ShoppingCart,
@@ -185,18 +185,16 @@ export default function Services() {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl hidden lg:block"
           >
-            <AnimatePresence mode="wait">
+            {segments.map((seg, i) => (
               <motion.img
-                key={active}
-                src={segments[active].image}
-                alt={segments[active].title}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.5 }}
+                key={seg.id}
+                src={seg.image}
+                alt={seg.title}
+                animate={{ opacity: active === i ? 1 : 0 }}
+                transition={{ duration: 0.4 }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-            </AnimatePresence>
+            ))}
 
             <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-transparent to-transparent" />
 
