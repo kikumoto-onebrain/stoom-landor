@@ -50,7 +50,7 @@ export default function Hero() {
           playsInline
           preload="auto"
         >
-          <source src="/locker-hero.mp4" type="video/mp4" />
+          <source src="/stoom-hero.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/75 via-[#0d2038]/70 to-brand-primary/65" />
