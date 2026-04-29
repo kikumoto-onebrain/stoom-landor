@@ -154,7 +154,7 @@ export default function About() {
             description="Armários inteligentes com acesso por QR Code ou código."
             features={product1Features}
             accent="orange"
-            image="/smart-locker.webp"
+            image="/smartlocker.webp"
             imageAlt="Smart Lockers"
             delay={0.15}
             isInView={isInView}
