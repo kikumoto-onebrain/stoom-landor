@@ -15,6 +15,7 @@ const depoimentos = [
     cargo: 'CTO',
     empresa: 'Zee.Dog',
     logo: '/logo-zeedog.svg',
+    logoClass: 'h-16 max-w-[180px]',
   },
   {
     texto: 'Trabalhar com a Stoom tem sido uma jornada longa e de uma parceria muito frutífera. Sou cliente há 8 anos, desde a última empresa que liderei e eles sempre se mostraram extremamente profissionais, comprometidos e parceiros para entregar qualidade.',
@@ -22,6 +23,7 @@ const depoimentos = [
     cargo: 'Diretor',
     empresa: 'Tenda Atacadista',
     logo: '/logo-tenda.svg',
+    logoClass: 'h-12 max-w-[160px]',
   },
   {
     texto: 'Ser atendido pela Stoom me dá uma boa sensação de estar trabalhando com e entre amigos que comungam de um mesmo propósito. Em uma espiral qualitativa, meu suporte foi melhorando desde os primeiros ajustes que se fizeram necessários.',
@@ -29,6 +31,7 @@ const depoimentos = [
     cargo: 'Novos Negócios & Marketing',
     empresa: 'Editora Foco',
     logo: '/logo-foco.webp',
+    logoClass: 'h-8 max-w-[120px]',
   },
 ]
 
@@ -178,7 +181,7 @@ export default function CasesHomeClient({ cases }: { cases: Case[] }) {
                 <img
                   src={d.logo}
                   alt={`Logo ${d.empresa}`}
-                  className="h-12 max-w-[160px] object-contain object-left mb-4"
+                  className={`${d.logoClass} object-contain object-left mb-4`}
                 />
                 <p className="font-roboto text-white/75 text-sm leading-relaxed flex-1 mb-6">
                   {d.texto}
