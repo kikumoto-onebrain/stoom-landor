@@ -43,7 +43,7 @@ function CaseCard({ item, index }: { item: Case; index: number }) {
       <Link href={`/cases/${item.slug.current}`} className="group block h-full">
         <div className="bg-white border border-gray-100 rounded-sm shadow-sm hover:shadow-lg hover:border-brand-secondary/30 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col overflow-hidden">
           {/* Logo */}
-          <div className="h-36 bg-brand-light flex items-center justify-center p-4 flex-shrink-0">
+          <div className="h-36 bg-brand-light flex items-center justify-center flex-shrink-0">
             {item.logoEmpresa?.asset?.url ? (
               <div className="relative w-full h-full">
                 <Image
