@@ -65,12 +65,14 @@ export interface Midia {
 }
 
 export async function getMidias(): Promise<Midia[]> {
-  return client.fetch(`
-    *[_type == "midia" && status == "publicado"] | order(dataPublicacao desc) {
+  return client.fetch(
+    `*[_type == "midia" && status == "publicado"] | order(dataPublicacao desc) {
       _id, titulo, veiculo, urlExterna, dataPublicacao,
       "imagem": imagem { asset->{ url }, hotspot }
-    }
-  `)
+    }`,
+    {},
+    { next: { revalidate: 60 } }
+  )
 }
 
 // ─── Cases ────────────────────────────────────────────────────────────────────
