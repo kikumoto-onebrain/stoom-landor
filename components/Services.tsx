@@ -40,7 +40,7 @@ const segments = [
       'Histórico completo de operações',
       'Autonomia para retiradas, independente do horário',
     ],
-    image: '/locker-condominio.webp',
+    image: '/condominio-locker.webp',
   },
   {
     id: 2,
