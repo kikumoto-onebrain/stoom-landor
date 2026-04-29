@@ -94,6 +94,12 @@ export default function CasesHomeClient({ cases }: { cases: Case[] }) {
 
       {/* Hero */}
       <section className="bg-brand-primary pt-40 pb-20 relative overflow-hidden">
+        <img
+          src="/banner-cases.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
