@@ -29,6 +29,12 @@ export default function QuemSomosPage() {
 
       {/* Hero */}
       <section className="relative bg-brand-primary pt-40 pb-24 overflow-hidden">
+        <img
+          src="/banner-sobre.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-highlight rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-secondary rounded-full blur-3xl" />
