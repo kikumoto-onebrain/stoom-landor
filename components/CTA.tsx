@@ -51,11 +51,11 @@ export default function CTA() {
         EMAILJS_SERVICE,
         EMAILJS_TEMPLATE,
         {
-          from_name: form.nome,
-          company:   form.empresa,
-          reply_to:  form.email,
-          phone:     form.telefone,
-          message:   form.mensagem,
+          name:    form.nome,
+          company: form.empresa,
+          email:   form.email,
+          phone:   form.telefone,
+          message: form.mensagem,
         },
         EMAILJS_KEY
       );
