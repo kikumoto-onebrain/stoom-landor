@@ -29,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/stoom-na-midia`,                lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.7 },
     { url: `${SITE_URL}/institucional/quem-somos`,      lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/institucional/parceiros`,       lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${SITE_URL}/smart-locker`,                  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ]
 
   const conteudoPages: MetadataRoute.Sitemap = conteudos.map(({ slug, updatedAt }) => ({
