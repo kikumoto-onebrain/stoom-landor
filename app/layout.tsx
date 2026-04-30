@@ -16,7 +16,7 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const SITE_URL = 'https://stoom-landor.vercel.app/';
+const SITE_URL = 'https://stoom.com.br';
 const OG_IMAGE = `${SITE_URL}/thumb-stoom.webp`;
 
 export const metadata: Metadata = {
