@@ -17,7 +17,7 @@ const roboto = Roboto({
 });
 
 const SITE_URL = 'https://stoom-landor.vercel.app/';
-const OG_IMAGE = `${SITE_URL}/thumb-kaizu.webp`;
+const OG_IMAGE = `${SITE_URL}/thumb-stoom.webp`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
