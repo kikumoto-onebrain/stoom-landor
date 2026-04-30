@@ -42,10 +42,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8">
-          <p className="text-white/50 font-roboto text-sm text-center">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-white/50 font-roboto text-sm">
             © 2026 Stoom. Todos os direitos reservados.
           </p>
+          <a
+            href="/POLÍTICA DE PRIVACIDADE - STOOM.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/50 font-roboto text-sm hover:text-white/80 transition-colors"
+          >
+            Política de Privacidade
+          </a>
         </div>
       </div>
     </footer>
