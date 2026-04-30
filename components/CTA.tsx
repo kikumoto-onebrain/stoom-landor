@@ -74,7 +74,7 @@ export default function CTA() {
 
   return (
     <section id="contato" ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden">
-      <motion.div style={{ y: bgY }} className="absolute inset-0">
+      <motion.div style={{ y: bgY }} className="absolute -top-[15%] -bottom-[15%] left-0 right-0">
         <img
           src="/stoom-locker.webp"
           alt="Contato Stoom"
