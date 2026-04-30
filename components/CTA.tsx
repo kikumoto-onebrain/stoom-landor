@@ -3,6 +3,11 @@
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Send, CircleCheck as CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE  = 'service_8aatc9r';
+const EMAILJS_TEMPLATE = 'template_bw1a0pm';
+const EMAILJS_KEY      = 'nLK03BSJEcEdRPL0q';
 
 type FormState = {
   nome: string;
@@ -27,6 +32,8 @@ export default function CTA() {
     mensagem: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -34,19 +41,35 @@ export default function CTA() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setForm({
-        nome: '',
-        empresa: '',
-        email: '',
-        telefone: '',
-        mensagem: '',
-      });
-      setSubmitted(false);
-    }, 5000);
+    setSending(true);
+    setError(null);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE,
+        EMAILJS_TEMPLATE,
+        {
+          from_name: form.nome,
+          company:   form.empresa,
+          reply_to:  form.email,
+          phone:     form.telefone,
+          message:   form.mensagem,
+        },
+        EMAILJS_KEY
+      );
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setForm({ nome: '', empresa: '', email: '', telefone: '', mensagem: '' });
+        setSubmitted(false);
+      }, 5000);
+    } catch {
+      setError('Ocorreu um erro ao enviar. Tente novamente.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -277,20 +300,27 @@ export default function CTA() {
                       transition={{ delay: 0.9, duration: 0.45 }}
                     >
                       <motion.button
-                        whileHover={{ scale: 1.02, y: -2 }}
-                        whileTap={{ scale: 0.97 }}
+                        whileHover={sending ? {} : { scale: 1.02, y: -2 }}
+                        whileTap={sending ? {} : { scale: 0.97 }}
                         type="submit"
-                        className="w-full px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-secondary/25"
+                        disabled={sending}
+                        className="w-full px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-secondary/25 disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        Fale com um especialista
-                        <motion.div
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                        >
-                          <Send size={18} />
-                        </motion.div>
+                        {sending ? 'Enviando...' : 'Fale com um especialista'}
+                        {!sending && (
+                          <motion.div
+                            animate={{ x: [0, 4, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                          >
+                            <Send size={18} />
+                          </motion.div>
+                        )}
                       </motion.button>
                     </motion.div>
+
+                    {error && (
+                      <p className="text-center text-xs text-red-400 font-roboto">{error}</p>
+                    )}
 
                     <motion.p
                       initial={{ opacity: 0 }}

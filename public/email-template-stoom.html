@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>Novo contato — Stoom</title>
+  </head>
+
+  <body style="margin:0;padding:0;background:#0a1628;">
+    <!-- Preheader -->
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+      Novo contato recebido pelo site da Stoom.
+    </div>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#0a1628;">
+      <tr>
+        <td align="center" style="padding:32px 12px;">
+
+          <!-- Container -->
+          <table
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            width="100%"
+            style="max-width:640px;background:#0f2842;border:1px solid rgba(76,201,240,0.20);border-radius:16px;overflow:hidden;"
+          >
+
+            <!-- Header com barra laranja -->
+            <tr>
+              <td style="background:#f97316;padding:4px 0;font-size:0;line-height:0;">&nbsp;</td>
+            </tr>
+
+            <!-- Logo + título -->
+            <tr>
+              <td style="padding:32px 32px 24px 32px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.50);text-transform:uppercase;margin-bottom:12px;">
+                        Stoom &bull; Novo Lead
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:28px;font-weight:700;color:#ffffff;line-height:1.2;">
+                        Novo contato recebido
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px;line-height:1.5;">
+                        Alguém entrou em contato pelo site <span style="color:#4cc9f0;font-weight:600;">stoom.com.br</span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Divider cyan -->
+            <tr>
+              <td style="padding:0 32px;">
+                <div style="height:1px;background:linear-gradient(90deg,rgba(76,201,240,0),rgba(76,201,240,0.50),rgba(76,201,240,0));"></div>
+              </td>
+            </tr>
+
+            <!-- Campos -->
+            <tr>
+              <td style="padding:24px 32px 8px 32px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+                  <!-- Nome -->
+                  <tr>
+                    <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;color:#4cc9f0;text-transform:uppercase;margin-bottom:5px;">
+                        Nome
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#ffffff;font-weight:600;">
+                        {{from_name}}
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Empresa -->
+                  <tr>
+                    <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;color:#4cc9f0;text-transform:uppercase;margin-bottom:5px;">
+                        Empresa
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#ffffff;font-weight:600;">
+                        {{company}}
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- E-mail -->
+                  <tr>
+                    <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;color:#4cc9f0;text-transform:uppercase;margin-bottom:5px;">
+                        E-mail
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#ffffff;font-weight:600;">
+                        <a href="mailto:{{reply_to}}" style="color:#ffffff;text-decoration:none;">{{reply_to}}</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Telefone -->
+                  <tr>
+                    <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;color:#4cc9f0;text-transform:uppercase;margin-bottom:5px;">
+                        Telefone
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#ffffff;font-weight:600;">
+                        <a href="tel:{{phone}}" style="color:#ffffff;text-decoration:none;">{{phone}}</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Mensagem -->
+                  <tr>
+                    <td style="padding:12px 0 4px 0;">
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;color:#4cc9f0;text-transform:uppercase;margin-bottom:8px;">
+                        Mensagem
+                      </div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:rgba(255,255,255,0.80);line-height:1.65;background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;border-left:3px solid #f97316;">
+                        {{message}}
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+
+            <!-- Barra inferior laranja + footer -->
+            <tr>
+              <td style="padding:28px 32px 32px 32px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="center">
+                      <div style="height:3px;background:linear-gradient(90deg,#f97316,#4cc9f0);border-radius:2px;margin-bottom:20px;"></div>
+                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;">
+                        &copy; Stoom &bull; Este e-mail é uma notificação automática gerada pelo formulário do site.
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
