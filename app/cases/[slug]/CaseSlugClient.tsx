@@ -60,12 +60,14 @@ const portableTextComponents: PortableTextComponents = {
 
 export default function CaseSlugClient({ item }: { item: Case }) {
   const [progress, setProgress] = useState(0)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     function handleScroll() {
       const el = document.documentElement
       const total = el.scrollHeight - el.clientHeight
       setProgress(total > 0 ? (el.scrollTop / total) * 100 : 0)
+      setScrolled(el.scrollTop > 10)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -73,10 +75,12 @@ export default function CaseSlugClient({ item }: { item: Case }) {
 
   return (
     <>
-      {/* Barra de progresso */}
-      <div className="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-gray-100">
+      {/* Barra de progresso de leitura */}
+      <div
+        className={`fixed top-20 left-0 right-0 z-[51] h-[3px] transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
+      >
         <div
-          className="h-full bg-gradient-to-r from-brand-secondary via-brand-highlight to-brand-secondary transition-all duration-100"
+          className="h-full bg-brand-secondary transition-all duration-100"
           style={{ width: `${progress}%` }}
         />
       </div>
