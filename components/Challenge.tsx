@@ -113,7 +113,7 @@ export default function Challenge() {
             </p>
 
             <motion.a
-              href="#contato"
+              href="/smart-locker"
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.95 }}
@@ -172,7 +172,7 @@ export default function Challenge() {
               className="flex justify-center lg:hidden relative z-20 mt-14"
             >
               <a
-                href="#contato"
+                href="/smart-locker"
                 className="group inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
               >
                 Conheça a solução
