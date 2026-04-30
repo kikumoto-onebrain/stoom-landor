@@ -153,38 +153,6 @@ export default function Navbar() {
             className="md:hidden bg-white border-t border-gray-200"
           >
             <div className="px-6 py-4 space-y-4">
-              <a
-                href="/#solucao"
-                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Solução
-              </a>
-
-              <a
-                href="/#segmentos"
-                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Segmentos
-              </a>
-
-              <Link
-                href="/cases"
-                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Cases
-              </Link>
-
-              <Link
-                href="/conteudos"
-                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Conteúdos
-              </Link>
-
               {/* Institucional mobile */}
               <div>
                 <button
@@ -219,6 +187,38 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </div>
+
+              <a
+                href="/#solucao"
+                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Solução
+              </a>
+
+              <a
+                href="/#segmentos"
+                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Segmentos
+              </a>
+
+              <Link
+                href="/cases"
+                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Cases
+              </Link>
+
+              <Link
+                href="/conteudos"
+                className="block text-brand-primary hover:text-brand-highlight font-roboto font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Conteúdos
+              </Link>
 
               <a
                 href="/#contato"
