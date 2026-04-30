@@ -231,7 +231,7 @@ export default function CTA() {
                             required={field.required}
                             placeholder={field.placeholder}
                             type={field.type}
-                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-white font-roboto text-sm placeholder:text-white/30 transition-all hover:border-white/25"
+                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-brand-primary font-roboto text-sm placeholder:text-white/40 transition-all hover:border-white/25"
                           />
                         </motion.div>
                       ))}
@@ -270,7 +270,7 @@ export default function CTA() {
                             required={field.required}
                             placeholder={field.placeholder}
                             type={field.type}
-                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-white font-roboto text-sm placeholder:text-white/30 transition-all hover:border-white/25"
+                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-brand-primary font-roboto text-sm placeholder:text-white/40 transition-all hover:border-white/25"
                           />
                         </motion.div>
                       ))}
@@ -290,7 +290,7 @@ export default function CTA() {
                         onChange={handleChange}
                         rows={3}
                         placeholder="Conte um pouco sobre sua operação..."
-                        className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-white font-roboto text-sm placeholder:text-white/30 transition-all resize-none hover:border-white/25"
+                        className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-brand-primary font-roboto text-sm placeholder:text-white/40 transition-all resize-none hover:border-white/25"
                       />
                     </motion.div>
 
