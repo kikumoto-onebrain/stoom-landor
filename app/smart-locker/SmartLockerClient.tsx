@@ -18,7 +18,6 @@ import {
   Boxes,
   Wrench,
   Award,
-  ArrowRight,
   CheckCircle2,
 } from 'lucide-react'
 import Navbar from '@/components/Navbar'
@@ -147,23 +146,19 @@ export default function SmartLockerClient() {
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span className="inline-block text-brand-highlight font-roboto text-sm font-medium tracking-widest uppercase mb-4">
-              Smart Locker
-            </span>
             <h1 className="font-outfit text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Smart Locker:{' '}
-              <span className="text-brand-secondary">automatize entregas</span>{' '}
-              e retiradas com segurança total
+              <span className="text-brand-secondary">automatize entregas e retiradas</span>{' '}
+              com segurança total
             </h1>
             <p className="font-roboto text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-              Do depósito à retirada — tudo rastreado, protegido e disponível 24 horas por dia. Sem filas, sem reentregas, sem dependência de funcionários.
+              Do depósito à retirada, tudo rastreado, protegido e disponível 24 horas por dia. Sem filas, sem reentregas, sem dependência de funcionários.
             </p>
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/25"
+              className="inline-flex items-center px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/25"
             >
               Quero um smart locker
-              <ArrowRight size={18} />
             </a>
           </motion.div>
         </div>
@@ -183,8 +178,8 @@ export default function SmartLockerClient() {
             </p>
           </SectionWrapper>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-            {dores.map((dor, i) => (
+          <div className="grid md:grid-cols-3 gap-6 mb-4">
+            {dores.slice(0, 3).map((dor, i) => (
               <motion.div
                 key={dor.titulo}
                 initial={{ opacity: 0, y: 24 }}
@@ -201,14 +196,31 @@ export default function SmartLockerClient() {
               </motion.div>
             ))}
           </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-14">
+            {dores.slice(3).map((dor, i) => (
+              <motion.div
+                key={dor.titulo}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (i + 3) * 0.07 }}
+                className="bg-red-50 border border-red-100 rounded-xl p-6"
+              >
+                <div className="w-11 h-11 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+                  <dor.icon size={20} className="text-red-500" />
+                </div>
+                <h3 className="font-outfit font-bold text-brand-primary mb-2">{dor.titulo}</h3>
+                <p className="font-roboto text-sm text-gray-600 leading-relaxed">{dor.descricao}</p>
+              </motion.div>
+            ))}
+          </div>
 
           <div className="text-center">
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-primary text-white font-roboto font-semibold rounded-sm hover:bg-brand-primary/90 transition-all hover:scale-[1.03]"
+              className="inline-flex items-center px-8 py-4 bg-brand-primary text-white font-roboto font-semibold rounded-sm hover:bg-brand-primary/90 transition-all hover:scale-[1.03]"
             >
               Quero resolver isso
-              <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -269,10 +281,9 @@ export default function SmartLockerClient() {
           <div className="text-center mt-14">
             <a
               href="#beneficios"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
+              className="inline-flex items-center px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
             >
               Ver os benefícios
-              <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -314,10 +325,9 @@ export default function SmartLockerClient() {
           <div className="text-center">
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
+              className="inline-flex items-center px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
             >
               Quero esses benefícios
-              <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -374,13 +384,14 @@ export default function SmartLockerClient() {
               </footer>
             </blockquote>
 
-            <Link
-              href="/cases/petz"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary text-white font-roboto font-medium rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.02]"
-            >
-              Ver o case completo
-              <ArrowRight size={16} />
-            </Link>
+            <div className="flex justify-center">
+              <Link
+                href="/cases/petz"
+                className="inline-flex items-center px-6 py-3 bg-brand-secondary text-white font-roboto font-medium rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.02]"
+              >
+                Ver o case completo
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -423,10 +434,9 @@ export default function SmartLockerClient() {
           <div className="text-center">
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
+              className="inline-flex items-center px-8 py-4 bg-brand-secondary text-white font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-all hover:scale-[1.03] shadow-lg shadow-brand-secondary/20"
             >
               Falar com um especialista
-              <ArrowRight size={18} />
             </a>
           </div>
         </div>
