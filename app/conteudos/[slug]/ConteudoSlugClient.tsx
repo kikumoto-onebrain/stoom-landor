@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, Tag } from 'lucide-react'
+import { ArrowLeft, Calendar } from 'lucide-react'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import type { Conteudo } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
@@ -76,9 +76,9 @@ export default function ConteudoSlugClient({ conteudo }: { conteudo: Conteudo })
   return (
     <>
       {/* Barra de progresso de leitura */}
-      <div className="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-gray-100">
+      <div className="fixed top-20 left-0 right-0 z-[51] h-[3px] bg-gray-200/40">
         <div
-          className="h-full bg-gradient-to-r from-brand-secondary via-brand-highlight to-brand-secondary transition-all duration-100"
+          className="h-full bg-brand-secondary transition-all duration-100"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -142,22 +142,6 @@ export default function ConteudoSlugClient({ conteudo }: { conteudo: Conteudo })
           {conteudo.corpo && (
             <div>
               <PortableText value={conteudo.corpo as Parameters<typeof PortableText>[0]['value']} components={portableTextComponents} />
-            </div>
-          )}
-
-          {conteudo.palavrasChave && conteudo.palavrasChave.length > 0 && (
-            <div className="mt-16 pt-8 border-t border-gray-100">
-              <div className="flex items-center gap-2 flex-wrap">
-                <Tag size={14} className="text-gray-400" />
-                {conteudo.palavrasChave.map(tag => (
-                  <span
-                    key={tag}
-                    className="text-xs font-roboto px-3 py-1 bg-brand-light text-gray-600 rounded-full border border-gray-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
           )}
 
