@@ -53,7 +53,7 @@ function CaseCard({ item, index }: { item: Case; index: number }) {
                   src={item.logoEmpresa.asset.url}
                   alt={item.empresa}
                   fill
-                  className="object-contain"
+                  className="object-cover md:object-contain"
                 />
               </div>
             ) : (
