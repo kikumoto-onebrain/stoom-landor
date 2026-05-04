@@ -1,20 +1,21 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Outfit, Roboto } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
-const outfit = Outfit({
-  subsets: ['latin'],
+const outfit = localFont({
+  src: './fonts/outfit-latin.woff2',
   variable: '--font-outfit',
   display: 'swap',
+  weight: '100 900',
 });
 
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
+const roboto = localFont({
+  src: './fonts/roboto-latin.woff2',
   variable: '--font-roboto',
   display: 'swap',
+  weight: '100 900',
 });
 
 const SITE_URL = 'https://stoom.com.br';
