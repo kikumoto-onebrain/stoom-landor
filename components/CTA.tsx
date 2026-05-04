@@ -5,9 +5,9 @@ import { useRef, useState } from 'react';
 import { Send, CircleCheck as CheckCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
-const EMAILJS_SERVICE  = 'service_8aatc9r';
-const EMAILJS_TEMPLATE = 'template_bw1a0pm';
-const EMAILJS_KEY      = 'nLK03BSJEcEdRPL0q';
+const EMAILJS_SERVICE  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  ?? 'service_8aatc9r';
+const EMAILJS_TEMPLATE = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? 'template_bw1a0pm';
+const EMAILJS_KEY      = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? 'nLK03BSJEcEdRPL0q';
 
 type FormState = {
   nome: string;
