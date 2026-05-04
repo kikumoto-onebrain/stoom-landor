@@ -153,9 +153,9 @@ export default function CaseSlugClient({ item }: { item: Case }) {
             <h2 className="font-outfit font-bold text-2xl text-white mb-10 text-center">
               Resultados
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="flex flex-wrap justify-center gap-10 md:gap-16">
               {item.resultados.map((r) => (
-                <div key={r._key} className="text-center">
+                <div key={r._key} className="text-center w-36">
                   <p className="font-outfit font-bold text-4xl text-brand-secondary mb-1">
                     {r.valor}
                   </p>
