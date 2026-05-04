@@ -358,7 +358,7 @@ export default function SmartLockerClient() {
             </h2>
           </SectionWrapper>
 
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+          <div className="bg-white/15 border border-white/20 rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
               <span className="font-outfit font-bold text-2xl text-white">Petz</span>
               <span className="text-xs font-roboto px-3 py-1 rounded-full bg-brand-secondary/20 text-brand-secondary border border-brand-secondary/30">
