@@ -335,6 +335,12 @@ export default function SmartLockerClient() {
 
       {/* ── Case Petz ────────────────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 bg-brand-primary relative overflow-hidden">
+        <img
+          src="/petz.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-highlight rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-secondary rounded-full blur-3xl" />
@@ -365,7 +371,7 @@ export default function SmartLockerClient() {
                 { valor: '85x',    metrica: 'crescimento em receita online' },
                 { valor: '140+',   metrica: 'lojas físicas integradas' },
                 { valor: 'R$3bi+', metrica: 'levantados no IPO de 2020' },
-                { valor: '7h→h',   metrica: 'redução no prazo de entrega' },
+                { valor: '7d → h', metrica: 'prazo de entrega: de 7 dias para horas' },
               ].map((r) => (
                 <div key={r.metrica} className="text-center">
                   <div className="font-outfit font-bold text-3xl lg:text-4xl text-brand-secondary mb-1">{r.valor}</div>
