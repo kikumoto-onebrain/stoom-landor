@@ -371,7 +371,7 @@ export default function SmartLockerClient() {
                 { valor: '85x',    metrica: 'crescimento em receita online' },
                 { valor: '140+',   metrica: 'lojas físicas integradas' },
                 { valor: 'R$3bi+', metrica: 'levantados no IPO de 2020' },
-                { valor: '7d → h', metrica: 'prazo de entrega: de 7 dias para horas' },
+                { valor: '5d → 1h', metrica: 'prazo de retirada: de até 5 dias para 1 hora' },
               ].map((r) => (
                 <div key={r.metrica} className="text-center">
                   <div className="font-outfit font-bold text-3xl lg:text-4xl text-brand-secondary mb-1">{r.valor}</div>
