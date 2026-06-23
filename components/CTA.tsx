@@ -60,6 +60,11 @@ export default function CTA() {
         EMAILJS_KEY
       );
 
+      if (typeof window !== 'undefined') {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({ event: 'lead_form_success' });
+      }
+
       setSubmitted(true);
       setTimeout(() => {
         setForm({ nome: '', empresa: '', email: '', telefone: '', mensagem: '' });
