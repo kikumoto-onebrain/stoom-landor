@@ -143,6 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-S12SFW8SV2');`,
           }}
         />
+        <Script id="hs-script-loader" src="//js.hs-scripts.com/51547160.js" strategy="afterInteractive" />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TLN423QH"
