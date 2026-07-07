@@ -63,6 +63,13 @@ export default function CTA() {
       if (typeof window !== 'undefined') {
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({ event: 'lead_form_success' });
+
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'generate_lead', {
+            event_category: 'engagement',
+            event_label: 'Formulário de contato',
+          });
+        }
       }
 
       setSubmitted(true);
