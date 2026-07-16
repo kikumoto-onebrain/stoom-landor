@@ -2,7 +2,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Script from 'next/script';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import MotionProvider from '@/components/MotionProvider';
 
 const outfit = localFont({
@@ -154,7 +153,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <MotionProvider>
           {children}
-          <WhatsAppButton />
         </MotionProvider>
       </body>
     </html>
