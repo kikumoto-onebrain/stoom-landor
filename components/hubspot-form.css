@@ -100,7 +100,7 @@
   background-color: rgba(255, 255, 255, 0.08) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 0.5rem !important;
-  color: #0f2842 !important;
+  color: #ffffff !important;
   font-family: var(--font-roboto), sans-serif !important;
   font-size: 0.875rem !important;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -114,6 +114,14 @@
 .stoom-hs-form .hsfc-TextInput::placeholder,
 .stoom-hs-form .hsfc-TextareaInput::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* globals.css força texto escuro em campos autopreenchidos pelo navegador;
+   aqui o fundo é escuro, então o autofill também precisa de texto branco */
+.stoom-hs-form input:-webkit-autofill,
+.stoom-hs-form input:-webkit-autofill:hover,
+.stoom-hs-form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
 }
 
 .stoom-hs-form .hsfc-TextInput:hover,
