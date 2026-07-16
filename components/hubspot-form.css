@@ -3,39 +3,67 @@
    no <head> depois do nosso CSS, então em empate de especificidade ele venceria
    por ordem no DOM. O form não deve depender do editor de estilo do HubSpot. */
 
+/* Wrappers do HubSpot costumam vir com max-width fixo (não responsivo) por padrão;
+   forçamos 100% em toda a cadeia de containers até o Step para o grid usar a largura
+   real do card. */
+.stoom-hs-form,
+.stoom-hs-form [data-hsfc-id='FormWrapper'],
+.stoom-hs-form [data-hsfc-id='Renderer'],
+.stoom-hs-form form[data-hsfc-id='Form'] {
+  width: 100% !important;
+  max-width: none !important;
+}
+
 .stoom-hs-form [data-hsfc-id='Step'] {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 1rem !important;
+  width: 100% !important;
+  max-width: none !important;
 }
 
 .stoom-hs-form [data-hsfc-id='Row'] {
   margin: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* O wrapper direto de cada campo (TextField/EmailField/PhoneField/TextareaField)
+   também pode vir com largura fixa própria; força a ocupar a coluna do grid. */
+.stoom-hs-form [data-hsfc-id='Row'] > * {
+  width: 100% !important;
+  max-width: none !important;
 }
 
 /* Reordena os campos visualmente: Nome+Empresa na 1ª linha, Email+Telefone na 2ª */
 .stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/firstname']) {
-  order: 1;
+  order: 1 !important;
+  grid-column: auto !important;
 }
 .stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/company']) {
-  order: 2;
+  order: 2 !important;
+  grid-column: auto !important;
 }
 .stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/email']) {
-  order: 3;
+  order: 3 !important;
+  grid-column: auto !important;
 }
 .stoom-hs-form [data-hsfc-id='Row']:has([data-hsfc-id='PhoneField']) {
-  order: 4;
+  order: 4 !important;
+  grid-column: auto !important;
 }
 .stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/message']) {
-  order: 5;
-  grid-column: 1 / -1;
+  order: 5 !important;
+  grid-column: 1 / -1 !important;
 }
 .stoom-hs-form [data-hsfc-id='NavigationRow'] {
-  order: 6;
-  grid-column: 1 / -1;
+  order: 6 !important;
+  grid-column: 1 / -1 !important;
   margin-top: 0.25rem !important;
   display: block !important;
   justify-content: normal !important;
+  width: 100% !important;
+  max-width: none !important;
 }
 
 /* Campos ocultos (utm_*, marca_do_grupo) não devem ocupar espaço no grid */
