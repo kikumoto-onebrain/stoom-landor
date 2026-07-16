@@ -15,6 +15,14 @@
 }
 
 .stoom-hs-form [data-hsfc-id='Step'] {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Os Rows não são filhos diretos de [data-hsfc-id='Step'] (que é só um wrapper flex
+   externo) — ficam dentro de .hsfc-Step__Content, um div interno sem data-hsfc-id
+   próprio. É esse elemento que precisa virar o grid de 2 colunas. */
+.stoom-hs-form .hsfc-Step__Content {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 1rem !important;
