@@ -1,0 +1,127 @@
+/* Overrides para o form embutido do HubSpot (CTA.tsx) reproduzir o design atual */
+
+.stoom-hs-form [data-hsfc-id='Step'] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stoom-hs-form [data-hsfc-id='Row'] {
+  margin: 0;
+}
+
+/* Reordena os campos visualmente: Nome+Empresa na 1ª linha, Email+Telefone na 2ª */
+.stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/firstname']) {
+  order: 1;
+}
+.stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/company']) {
+  order: 2;
+}
+.stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/email']) {
+  order: 3;
+}
+.stoom-hs-form [data-hsfc-id='Row']:has([data-hsfc-id='PhoneField']) {
+  order: 4;
+}
+.stoom-hs-form [data-hsfc-id='Row']:has([name='0-1/message']) {
+  order: 5;
+  grid-column: 1 / -1;
+}
+.stoom-hs-form [data-hsfc-id='NavigationRow'] {
+  order: 6;
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+}
+
+/* Campos ocultos (utm_*, marca_do_grupo) não devem ocupar espaço no grid */
+.stoom-hs-form [data-hsfc-id='Row']:has([data-hsfc-id='HiddenField']) {
+  display: none;
+}
+
+.stoom-hs-form [data-hsfc-id='FieldLabel'] {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stoom-hs-form .hsfc-FieldLabel__RequiredIndicator {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stoom-hs-form .hsfc-TextInput,
+.stoom-hs-form .hsfc-TextareaInput,
+.stoom-hs-form .hsfc-PhoneInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  color: #0f2842;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.stoom-hs-form .hsfc-TextareaInput {
+  resize: none;
+  min-height: 4.5rem;
+}
+
+.stoom-hs-form .hsfc-TextInput::placeholder,
+.stoom-hs-form .hsfc-TextareaInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.stoom-hs-form .hsfc-TextInput:hover,
+.stoom-hs-form .hsfc-TextareaInput:hover,
+.stoom-hs-form .hsfc-PhoneInput:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.stoom-hs-form .hsfc-TextInput:focus,
+.stoom-hs-form .hsfc-TextareaInput:focus,
+.stoom-hs-form .hsfc-PhoneInput:focus-within {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #4cc9f0;
+}
+
+/* O widget de telefone tem sua própria caixa; o input interno fica "flush" dentro dela */
+.stoom-hs-form .hsfc-PhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.stoom-hs-form .hsfc-PhoneInput .hsfc-TextInput {
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.stoom-hs-form .hsfc-Button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #f97316;
+  color: #000000;
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.125rem;
+  box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.25);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.stoom-hs-form .hsfc-Button:hover {
+  background-color: rgba(249, 115, 22, 0.9);
+}
+
+.stoom-hs-form .hsfc-Button[aria-busy='true'] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

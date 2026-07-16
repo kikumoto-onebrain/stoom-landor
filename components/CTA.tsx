@@ -1,21 +1,13 @@
 'use client';
 
 import { m, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Send, CircleCheck as CheckCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import { useEffect, useRef, useState } from 'react';
+import { CircleCheck as CheckCircle } from 'lucide-react';
+import Script from 'next/script';
+import './hubspot-form.css';
 
-const EMAILJS_SERVICE  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  ?? 'service_8aatc9r';
-const EMAILJS_TEMPLATE = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? 'template_bw1a0pm';
-const EMAILJS_KEY      = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? 'nLK03BSJEcEdRPL0q';
-
-type FormState = {
-  nome: string;
-  empresa: string;
-  email: string;
-  telefone: string;
-  mensagem: string;
-};
+const HUBSPOT_PORTAL_ID = '51547160';
+const HUBSPOT_FORM_ID = '6c33c565-d83e-41e5-80e7-75e316ad7c36';
 
 export default function CTA() {
   const sectionRef = useRef(null);
@@ -24,65 +16,46 @@ export default function CTA() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
   const bgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.85, 0.93, 0.93, 0.85]);
 
-  const [form, setForm] = useState<FormState>({
-    nome: '',
-    empresa: '',
-    email: '',
-    telefone: '',
-    mensagem: '',
-  });
+  const formContainerRef = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  useEffect(() => {
+    const container = formContainerRef.current;
+    if (!container) return;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    setError(null);
+    let formHasRendered = false;
 
-    try {
-      await emailjs.send(
-        EMAILJS_SERVICE,
-        EMAILJS_TEMPLATE,
-        {
-          name:    form.nome,
-          company: form.empresa,
-          email:   form.email,
-          phone:   form.telefone,
-          message: form.mensagem,
-        },
-        EMAILJS_KEY
-      );
+    const observer = new MutationObserver(() => {
+      const hasForm = !!container.querySelector('form[data-hsfc-id="Form"]');
 
-      if (typeof window !== 'undefined') {
-        (window as any).dataLayer = (window as any).dataLayer || [];
-        (window as any).dataLayer.push({ event: 'lead_form_success' });
-
-        if (typeof (window as any).gtag === 'function') {
-          (window as any).gtag('event', 'generate_lead', {
-            event_category: 'engagement',
-            event_label: 'Formulário de contato',
-          });
-        }
+      if (hasForm) {
+        formHasRendered = true;
+        return;
       }
 
-      setSubmitted(true);
-      setTimeout(() => {
-        setForm({ nome: '', empresa: '', email: '', telefone: '', mensagem: '' });
-        setSubmitted(false);
-      }, 5000);
-    } catch {
-      setError('Ocorreu um erro ao enviar. Tente novamente.');
-    } finally {
-      setSending(false);
-    }
-  };
+      if (formHasRendered) {
+        formHasRendered = false;
+
+        if (typeof window !== 'undefined') {
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer.push({ event: 'lead_form_success' });
+
+          if (typeof (window as any).gtag === 'function') {
+            (window as any).gtag('event', 'generate_lead', {
+              event_category: 'engagement',
+              event_label: 'Formulário de contato (HubSpot)',
+            });
+          }
+        }
+
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    });
+
+    observer.observe(container, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="contato" ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden">
@@ -201,154 +174,37 @@ export default function CTA() {
                     </m.p>
                   </m.div>
                 ) : (
-                  <m.form
+                  <m.div
                     key="form"
-                    onSubmit={handleSubmit}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="space-y-4"
                   >
-                    <div className="grid grid-cols-2 gap-4">
-                      {[
-                        {
-                          name: 'nome',
-                          label: 'Nome',
-                          placeholder: 'Seu nome',
-                          type: 'text',
-                          required: true,
-                        },
-                        {
-                          name: 'empresa',
-                          label: 'Empresa',
-                          placeholder: 'Sua empresa',
-                          type: 'text',
-                          required: true,
-                        },
-                      ].map((field, i) => (
-                        <m.div
-                          key={field.name}
-                          initial={{ opacity: 0, y: 12 }}
-                          animate={isInView ? { opacity: 1, y: 0 } : {}}
-                          transition={{ delay: 0.4 + i * 0.08, duration: 0.45 }}
-                        >
-                          <label className="block text-xs font-roboto font-medium text-white/70 mb-1.5">
-                            {field.label} {field.required && '*'}
-                          </label>
-                          <input
-                            name={field.name}
-                            value={form[field.name as keyof FormState]}
-                            onChange={handleChange}
-                            required={field.required}
-                            placeholder={field.placeholder}
-                            type={field.type}
-                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-brand-primary font-roboto text-sm placeholder:text-white/40 transition-all hover:border-white/25"
-                          />
-                        </m.div>
-                      ))}
-                    </div>
+                    <div
+                      ref={formContainerRef}
+                      className="hs-form-html stoom-hs-form"
+                      data-region="na1"
+                      data-form-id={HUBSPOT_FORM_ID}
+                      data-portal-id={HUBSPOT_PORTAL_ID}
+                    />
 
-                    <div className="grid grid-cols-2 gap-4">
-                      {[
-                        {
-                          name: 'email',
-                          label: 'E-mail',
-                          placeholder: 'seu@empresa.com.br',
-                          type: 'email',
-                          required: true,
-                        },
-                        {
-                          name: 'telefone',
-                          label: 'Telefone',
-                          placeholder: '(11) 99999-9999',
-                          type: 'tel',
-                          required: true,
-                        },
-                      ].map((field, i) => (
-                        <m.div
-                          key={field.name}
-                          initial={{ opacity: 0, y: 12 }}
-                          animate={isInView ? { opacity: 1, y: 0 } : {}}
-                          transition={{ delay: 0.52 + i * 0.08, duration: 0.45 }}
-                        >
-                          <label className="block text-xs font-roboto font-medium text-white/70 mb-1.5">
-                            {field.label} {field.required && '*'}
-                          </label>
-                          <input
-                            name={field.name}
-                            value={form[field.name as keyof FormState]}
-                            onChange={handleChange}
-                            required={field.required}
-                            placeholder={field.placeholder}
-                            type={field.type}
-                            className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-brand-primary font-roboto text-sm placeholder:text-white/40 transition-all hover:border-white/25"
-                          />
-                        </m.div>
-                      ))}
-                    </div>
-
-                    <m.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.81, duration: 0.45 }}
-                    >
-                      <label className="block text-xs font-roboto font-medium text-white/70 mb-1.5">
-                        Mensagem
-                      </label>
-                      <textarea
-                        name="mensagem"
-                        value={form.mensagem}
-                        onChange={handleChange}
-                        rows={3}
-                        placeholder="Conte um pouco sobre sua operação..."
-                        className="w-full px-4 py-3 bg-white/8 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:border-transparent text-brand-primary font-roboto text-sm placeholder:text-white/40 transition-all resize-none hover:border-white/25"
-                      />
-                    </m.div>
-
-                    <m.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.9, duration: 0.45 }}
-                    >
-                      <m.button
-                        whileHover={sending ? {} : { scale: 1.02, y: -2 }}
-                        whileTap={sending ? {} : { scale: 0.97 }}
-                        type="submit"
-                        disabled={sending}
-                        className="w-full px-8 py-4 bg-brand-secondary text-black font-roboto font-semibold rounded-sm hover:bg-brand-secondary/90 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-secondary/25 disabled:opacity-70 disabled:cursor-not-allowed"
-                      >
-                        {sending ? 'Enviando...' : 'Fale com um especialista'}
-                        {!sending && (
-                          <m.div
-                            animate={{ x: [0, 4, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                          >
-                            <Send size={18} />
-                          </m.div>
-                        )}
-                      </m.button>
-                    </m.div>
-
-                    {error && (
-                      <p className="text-center text-xs text-red-400 font-roboto">{error}</p>
-                    )}
-
-                    <m.p
-                      initial={{ opacity: 0 }}
-                      animate={isInView ? { opacity: 1 } : {}}
-                      transition={{ delay: 1, duration: 0.5 }}
-                      className="text-center text-xs text-white/40 font-roboto"
-                    >
+                    <p className="text-center text-xs text-white/40 font-roboto mt-4">
                       Seus dados estão protegidos conforme a LGPD.
-                    </m.p>
-                  </m.form>
+                    </p>
+                  </m.div>
                 )}
               </AnimatePresence>
             </m.div>
           </m.div>
         </div>
       </div>
+
+      <Script
+        id="hs-form-embed-script"
+        src={`https://js.hsforms.net/forms/embed/developer/${HUBSPOT_PORTAL_ID}.js`}
+        strategy="afterInteractive"
+      />
     </section>
   );
 }
