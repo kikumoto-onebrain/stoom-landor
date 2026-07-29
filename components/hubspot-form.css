@@ -74,6 +74,13 @@
   max-width: none !important;
 }
 
+/* Mobile: campos empilhados em 1 coluna em vez do grid 2 colunas (melhor visualização) */
+@media (max-width: 640px) {
+  .stoom-hs-form .hsfc-Step__Content {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Campos ocultos (utm_*, marca_do_grupo) não devem ocupar espaço no grid */
 .stoom-hs-form [data-hsfc-id='Row']:has([data-hsfc-id='HiddenField']) {
   display: none !important;
