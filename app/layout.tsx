@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 import MotionProvider from '@/components/MotionProvider';
+import { jsonLdScript } from '@/lib/json-ld';
 
 const outfit = localFont({
   src: './fonts/outfit-latin.woff2',
@@ -112,6 +113,20 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Stoom',
+  url: SITE_URL,
+  logo: `${SITE_URL}/stoom-primario.svg`,
+  description:
+    'A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
+  sameAs: [
+    'https://www.linkedin.com/company/stoom-ecommerce/',
+    'https://www.instagram.com/stoom_tecnologia_/',
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -119,6 +134,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${roboto.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(organizationJsonLd) }}
+        />
+      </head>
       <body className={roboto.className}>
         <Script
           id="gtm-script"
