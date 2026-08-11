@@ -15,6 +15,16 @@ const nextConfig = {
   experimental: {
     browsersListForSwc: true,
   },
+  async headers() {
+    return [
+      {
+        source: '/',
+        headers: [
+          { key: 'Link', value: '</llms.txt>; rel="service-doc"' },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       { source: '/produtos/stoom-smart-locker/', destination: '/smart-locker', permanent: true },

@@ -1,0 +1,24 @@
+# Stoom
+
+> A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.
+
+Site institucional da Stoom, marca do ecossistema Landor.
+
+## Páginas
+
+- [Home](https://stoom.com.br/): Apresentação da Stoom e da solução de smart lockers
+- [Smart Locker](https://stoom.com.br/smart-locker): Página de conversão sobre a solução de armários inteligentes para entregas e retiradas
+- [Cases](https://stoom.com.br/cases): Cases de sucesso de clientes que usam os smart lockers Stoom
+- [Conteúdos](https://stoom.com.br/conteudos): Artigos sobre logística, gestão de entregas e automação
+- [Quem somos](https://stoom.com.br/institucional/quem-somos): Sobre a Stoom, missão, visão e ecossistema Landor
+- [Parceiros](https://stoom.com.br/institucional/parceiros): Parceiros do ecossistema Stoom
+- [Stoom na Mídia](https://stoom.com.br/stoom-na-midia): Notícias e menções da Stoom na imprensa
+
+## Ecossistema
+
+- [Landor](https://landor.com.br/): Ecossistema de tecnologia que reúne Onebrain, Stoom, FAST, Kolivo e Outforce
+
+## Contato
+
+- LinkedIn: https://www.linkedin.com/company/stoom-ecommerce/
+- Instagram: https://www.instagram.com/stoom_tecnologia_/
