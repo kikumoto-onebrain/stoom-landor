@@ -200,11 +200,13 @@ export default function CTA() {
         </div>
       </div>
 
-      <Script
-        id="hs-form-embed-script"
-        src={`https://js.hsforms.net/forms/embed/developer/${HUBSPOT_PORTAL_ID}.js`}
-        strategy="afterInteractive"
-      />
+      {isInView && (
+        <Script
+          id="hs-form-embed-script"
+          src={`https://js.hsforms.net/forms/embed/developer/${HUBSPOT_PORTAL_ID}.js`}
+          strategy="afterInteractive"
+        />
+      )}
     </section>
   );
 }
