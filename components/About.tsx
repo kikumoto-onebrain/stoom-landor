@@ -2,6 +2,7 @@
 
 import { m, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 import {
   LayoutDashboard,
   CircleCheck as CheckCircle2,
@@ -87,8 +88,14 @@ function ProductCard({
         </span>
       </div>
 
-      <div className="relative rounded-2xl overflow-hidden mb-6">
-        <img src={image} alt={imageAlt} className="w-full h-64 object-cover" />
+      <div className="relative h-64 rounded-2xl overflow-hidden mb-6">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 494px"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/25 via-transparent to-transparent" />
       </div>
 

@@ -2,6 +2,7 @@
 
 import { m, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 import { Users, Scale, Eye, TrendingDown } from 'lucide-react';
 
 const problems = [
@@ -130,13 +131,19 @@ export default function Challenge() {
               transition={{ delay: 0.2 }}
               className="relative pb-14 lg:pb-0"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <m.img
+              <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <m.div
                   style={{ scale: imageScale, y: imageY, filter: imageBlur }}
-                  src="/problema-entrega.webp"
-                  alt="Desafio das entregas"
-                  className="w-full h-[500px] object-cover origin-center will-change-transform"
-                />
+                  className="absolute inset-0 origin-center will-change-transform"
+                >
+                  <Image
+                    src="/problema-entrega.webp"
+                    alt="Desafio das entregas"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 560px"
+                  />
+                </m.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/70 via-brand-primary/10 to-transparent" />
               </div>
 
