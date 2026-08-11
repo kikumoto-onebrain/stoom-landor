@@ -18,7 +18,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isInstitucionalOpen, setIsInstitucionalOpen] = useState(false);
   const [isMobileInstitucionalOpen, setIsMobileInstitucionalOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
+      aria-label="Navegação principal"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -65,53 +66,56 @@ export default function Navbar() {
 
           {/* Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            {/* Dropdown Institucional */}
-            <div
-              className="relative"
-              ref={dropdownRef}
-              onMouseEnter={() => setIsInstitucionalOpen(true)}
-              onMouseLeave={() => setIsInstitucionalOpen(false)}
-            >
-              <button
-                className={`flex items-center gap-1 ${linkClass}`}
+            <ul className="flex items-center space-x-8">
+              {/* Dropdown Institucional */}
+              <li
+                className="relative"
+                ref={dropdownRef}
+                onMouseEnter={() => setIsInstitucionalOpen(true)}
+                onMouseLeave={() => setIsInstitucionalOpen(false)}
               >
-                Institucional
-                <ChevronDown
-                  size={15}
-                  className={`transition-transform duration-200 ${isInstitucionalOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
+                <button
+                  className={`flex items-center gap-1 ${linkClass}`}
+                  aria-haspopup="menu"
+                  aria-expanded={isInstitucionalOpen}
+                >
+                  Institucional
+                  <ChevronDown
+                    size={15}
+                    className={`transition-transform duration-200 ${isInstitucionalOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
 
-              <AnimatePresence>
-                {isInstitucionalOpen && (
-                  <m.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
-                  >
-                    {institucionalLinks.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setIsInstitucionalOpen(false)}
-                        className={`block px-4 py-3 text-sm font-roboto font-medium transition-colors hover:bg-brand-light hover:text-brand-secondary ${
-                          pathname === item.href ? 'text-brand-secondary bg-brand-light' : 'text-brand-primary'
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </m.div>
-                )}
-              </AnimatePresence>
-            </div>
+                {/* Sempre presente no DOM (crawlable); visibilidade controlada por CSS */}
+                <div
+                  role="menu"
+                  className={`absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-150 ${
+                    isInstitucionalOpen
+                      ? 'opacity-100 visible translate-y-0'
+                      : 'opacity-0 invisible -translate-y-1 pointer-events-none'
+                  }`}
+                >
+                  {institucionalLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      onClick={() => setIsInstitucionalOpen(false)}
+                      className={`block px-4 py-3 text-sm font-roboto font-medium transition-colors hover:bg-brand-light hover:text-brand-secondary ${
+                        pathname === item.href ? 'text-brand-secondary bg-brand-light' : 'text-brand-primary'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </li>
 
-            <Link href="/smart-locker" className={linkClass}>Solução</Link>
-            <a href="/#segmentos" className={linkClass}>Segmentos</a>
-            <Link href="/cases" className={linkClass}>Cases</Link>
-            <Link href="/conteudos" className={linkClass}>Conteúdos</Link>
+              <li><Link href="/smart-locker" className={linkClass}>Solução</Link></li>
+              <li><a href="/#segmentos" className={linkClass}>Segmentos</a></li>
+              <li><Link href="/cases" className={linkClass}>Cases</Link></li>
+              <li><Link href="/conteudos" className={linkClass}>Conteúdos</Link></li>
+            </ul>
 
             <a
               href="/#contato"
