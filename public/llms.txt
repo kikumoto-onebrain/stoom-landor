@@ -2,17 +2,17 @@
 
 > A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.
 
-Site institucional da Stoom, marca do ecossistema Landor.
+Site institucional da Stoom, marca do ecossistema Landor. As páginas abaixo têm uma versão markdown equivalente disponível em `/api/markdown/...`, otimizada para leitura por agentes de IA.
 
 ## Páginas
 
-- [Home](https://stoom.com.br/): Apresentação da Stoom e da solução de smart lockers
-- [Smart Locker](https://stoom.com.br/smart-locker): Página de conversão sobre a solução de armários inteligentes para entregas e retiradas
-- [Cases](https://stoom.com.br/cases): Cases de sucesso de clientes que usam os smart lockers Stoom
-- [Conteúdos](https://stoom.com.br/conteudos): Artigos sobre logística, gestão de entregas e automação
-- [Quem somos](https://stoom.com.br/institucional/quem-somos): Sobre a Stoom, missão, visão e ecossistema Landor
-- [Parceiros](https://stoom.com.br/institucional/parceiros): Parceiros do ecossistema Stoom
-- [Stoom na Mídia](https://stoom.com.br/stoom-na-midia): Notícias e menções da Stoom na imprensa
+- [Home](https://stoom.com.br/): Apresentação da Stoom e da solução de smart lockers. Markdown: https://stoom.com.br/api/markdown
+- [Smart Locker](https://stoom.com.br/smart-locker): Página de conversão sobre a solução de armários inteligentes para entregas e retiradas. Markdown: https://stoom.com.br/api/markdown/smart-locker
+- [Cases](https://stoom.com.br/cases): Cases de sucesso de clientes que usam os smart lockers Stoom. Markdown: https://stoom.com.br/api/markdown/cases
+- [Conteúdos](https://stoom.com.br/conteudos): Artigos sobre logística, gestão de entregas e automação. Markdown: https://stoom.com.br/api/markdown/conteudos
+- [Quem somos](https://stoom.com.br/institucional/quem-somos): Sobre a Stoom, missão, visão e ecossistema Landor. Markdown: https://stoom.com.br/api/markdown/institucional/quem-somos
+- [Parceiros](https://stoom.com.br/institucional/parceiros): Parceiros do ecossistema Stoom. Markdown: https://stoom.com.br/api/markdown/institucional/parceiros
+- [Stoom na Mídia](https://stoom.com.br/stoom-na-midia): Notícias e menções da Stoom na imprensa. Markdown: https://stoom.com.br/api/markdown/stoom-na-midia
 
 ## Ecossistema
 
