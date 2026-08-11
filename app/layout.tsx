@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   description:
     'A Stoom combina smart lockers e plataforma digital para automatizar entregas, retiradas e gestão logística com segurança, rastreabilidade e controle em tempo real.',
 
+  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+
   keywords: [
     'Stoom',
     'smart locker',
