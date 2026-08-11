@@ -12,9 +12,6 @@ const nextConfig = {
     remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }],
   },
   transpilePackages: ['sanity', 'next-sanity', '@sanity/ui', '@sanity/icons', 'styled-components'],
-  experimental: {
-    browsersListForSwc: true,
-  },
   async headers() {
     return [
       {
