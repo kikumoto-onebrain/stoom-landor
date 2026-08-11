@@ -9,7 +9,12 @@ export const metadata: Metadata = {
   description: 'Artigos, insights e novidades sobre logística inteligente, smart lockers e gestão de entregas.',
 }
 
-export default async function ConteudosPage() {
+export default async function ConteudosPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>
+}) {
   const [conteudos, categorias] = await Promise.all([getConteudos(), getCategorias()])
-  return <ConteudosHomeClient conteudos={conteudos} categorias={categorias} />
+  const { q } = await searchParams
+  return <ConteudosHomeClient conteudos={conteudos} categorias={categorias} initialSearch={q ?? ''} />
 }

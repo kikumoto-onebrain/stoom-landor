@@ -70,10 +70,11 @@ function ConteudoCard({ conteudo, index }: { conteudo: Conteudo; index: number }
 interface Props {
   conteudos: Conteudo[]
   categorias: Categoria[]
+  initialSearch?: string
 }
 
-export default function ConteudosHomeClient({ conteudos, categorias }: Props) {
-  const [search, setSearch] = useState('')
+export default function ConteudosHomeClient({ conteudos, categorias, initialSearch = '' }: Props) {
+  const [search, setSearch] = useState(initialSearch)
   const [categoriaAtiva, setCategoriaAtiva] = useState<string | null>(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
