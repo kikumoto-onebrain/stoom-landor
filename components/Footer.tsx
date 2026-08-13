@@ -47,9 +47,7 @@ export default function Footer() {
             © 2026 Stoom. Todos os direitos reservados.
           </p>
           <a
-            href="/POLÍTICA DE PRIVACIDADE - STOOM.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/institucional/politica-de-privacidade"
             className="text-white/50 font-roboto text-sm hover:text-white/80 transition-colors"
           >
             Política de Privacidade
