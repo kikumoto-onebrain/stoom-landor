@@ -86,28 +86,31 @@ export default function Navbar() {
                   />
                 </button>
 
-                {/* Sempre presente no DOM (crawlable); visibilidade controlada por CSS */}
+                {/* Sempre presente no DOM (crawlable); visibilidade controlada por CSS.
+                    pt-2 (em vez de mt-2) mantém o espaço entre botão e menu dentro da área
+                    de hover do <li>, evitando que o mouseleave dispare ao atravessar o gap. */}
                 <div
-                  role="menu"
-                  className={`absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-150 ${
+                  className={`absolute top-full left-0 pt-2 w-44 transition-all duration-150 ${
                     isInstitucionalOpen
                       ? 'opacity-100 visible translate-y-0'
                       : 'opacity-0 invisible -translate-y-1 pointer-events-none'
                   }`}
                 >
-                  {institucionalLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      role="menuitem"
-                      onClick={() => setIsInstitucionalOpen(false)}
-                      className={`block px-4 py-3 text-sm font-roboto font-medium transition-colors hover:bg-brand-light hover:text-brand-secondary ${
-                        pathname === item.href ? 'text-brand-secondary bg-brand-light' : 'text-brand-primary'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                  <div role="menu" className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                    {institucionalLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        role="menuitem"
+                        onClick={() => setIsInstitucionalOpen(false)}
+                        className={`block px-4 py-3 text-sm font-roboto font-medium transition-colors hover:bg-brand-light hover:text-brand-secondary ${
+                          pathname === item.href ? 'text-brand-secondary bg-brand-light' : 'text-brand-primary'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </li>
 
