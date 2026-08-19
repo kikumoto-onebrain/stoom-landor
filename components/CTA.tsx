@@ -46,6 +46,10 @@ export default function CTA() {
               event_label: 'Formulário de contato (HubSpot)',
             });
           }
+
+          if (typeof (window as any).fbq === 'function') {
+            (window as any).fbq('track', 'Lead');
+          }
         }
 
         setSubmitted(true);
